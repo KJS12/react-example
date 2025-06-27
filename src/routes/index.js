@@ -9,6 +9,7 @@ import {
     PropsDrilling, UseContext,
     UseMemo,
     UseCallback,
+    UseReducer,
 } from "../pages/example";
 
 export const targetPage = [
@@ -21,4 +22,5 @@ export const targetPage = [
     {path: '/useContext', label: 'useContext',to: <UseContext />},
     {path: '/useMemo', label: 'useMemo',to: <UseMemo />},
     {path: '/useCallback', label: 'useCallback',to: <UseCallback />},
+    {path: '/useReducer', label: 'useReducer',to: <UseReducer />},
 ]
