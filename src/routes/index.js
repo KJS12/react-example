@@ -10,6 +10,7 @@ import {
     UseMemo,
     UseCallback,
     UseReducer,
+    ReactMemo,
 } from "../pages/example";
 
 export const targetPage = [
@@ -23,4 +24,5 @@ export const targetPage = [
     {path: '/useMemo', label: 'useMemo',to: <UseMemo />},
     {path: '/useCallback', label: 'useCallback',to: <UseCallback />},
     {path: '/useReducer', label: 'useReducer',to: <UseReducer />},
+    {path: '/reactMemo', label: 'React.memo',to: <ReactMemo />},
 ]
