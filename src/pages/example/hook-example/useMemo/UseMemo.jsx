@@ -12,6 +12,11 @@ const easyCalculate = (number) => {
     return number + 1;
 }
 
+/**
+ * useMemo( () => {
+ * }, [dependency]);
+ * @returns 
+ */
 const UseMemo = () => {
     const [hardNumber, setHardNumber] = useState(1);
     const [easyNumber, setEasyNumber] = useState(1);
