@@ -1,0 +1,17 @@
+
+.list {
+    padding-left: 20px;
+    padding-bottom: 30px;
+    text-align: left;
+
+    /* border-bottom: 1px solid gray; */
+    border: 1px solid gray;
+    border-radius: 2cap;
+}
+
+.modal {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eee;
+    text-align: left;
+}

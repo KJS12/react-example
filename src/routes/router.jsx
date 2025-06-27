@@ -1,7 +1,5 @@
-import ErrorPage from "../layout/ErrorPage";
-import Home from "../layout/Home";
-import Layout from "../layout/Layout";
-import Blog from "../pages/Blog";
+import { targetPage } from "./index";
+import { Home, Layout, ErrorPage} from "../layout";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -11,14 +9,17 @@ const router = createBrowserRouter([
         element: <Layout />,
         errorElement: <ErrorPage />,
         children: [
+            // 기본경로
             {
                 index: true, // 기본 경로 ("/")
                 element: <Home />,
             },
-            {
-                path: "/Blog",
-                element: <Blog />,
-            },
+
+            // targetPage 별도 관리
+            ...Object.values(targetPage).map((page) => ({
+                path: page.path,
+                element: page.to,
+            })),
         ]
     },
 ]);

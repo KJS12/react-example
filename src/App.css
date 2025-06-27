@@ -1,11 +1,110 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.d-flex {
+  display: flex;
 }
 
 .layout-header {
   display: flex;
   background: black;
-  width: 100%;
   color: white;
   padding-left: 20px;
 }
+
+.layout-menu {
+  margin-bottom: 20px;
+  padding: 0.25rem;
+  background: rgb(213, 64, 64);
+}
+
+.layout-content {
+  padding: 5px;
+  /* background: #eee; */
+  height: 100px;
+}
+
+/* .layout-footer {
+  background: black;
+  color: white;
+  margin-top: 2cap;
+  padding-left: 20px;
+} */
+
+div {
+    box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem;
+  gap: 20px;
+  font-weight: bold;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+  background: rgb(208, 235, 208);
+  border: 0;
+  border-radius: 5cap;
+  color: black;
+  padding: 0.25rem;
+}
+
+button {
+  background: rgb(79, 198, 79);
+  border: 0;
+  border-radius: 5cap;
+  color: white;
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+.gap {
+    gap: 0.25rem;
+}
+
+.line-none {
+  text-decoration-line: none;
+}
+
+.line-under {
+  text-decoration-line: underline;
+}
+
+.line-over {
+  text-decoration-line: overline;
+}
+
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.t-white {
+  color: white;
+}
+
+.t-black {
+  color: black;
+}
+
+.container-line {
+  padding: 1rem;
+  border-bottom: 1px solid #303030;
+}
+
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+/*
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+*/

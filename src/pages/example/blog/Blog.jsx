@@ -80,25 +80,13 @@ const Blog = () => {
 
     return (
         <div>
-            <div className="gap">
+            <div className="d-flex gap">
                 <button onClick={handleSortAsc}>오름차순 정렬</button>
                 <button onClick={handleSortDesc}>내림치순 정렬</button>
                 <button onClick={handleEdit}>글수정</button>
                 <button onClick={handleAdd}>글추가</button>
             </div>
-            {contents && contents.map((item, index) => (
-                <div className="list" key={index}>
-                    <h4>{item.title} <span onClick={() => handleClick(index)}>👍</span> {item.count}</h4>
-                    <p>{item.date}</p>
-                    <Modal
-                        title={item.title}
-                        date={item.date}
-                    />
-                </div>
-            ))}
-
-            {/* 구조분해 할당 버전 */}
-            {/* {contents && contents.map((item, index) => {
+            {contents && contents.map((item, index) => {
                 const {title, date, count} = item;
 
                 return (
@@ -111,7 +99,7 @@ const Blog = () => {
                         />
                     </div>
                 )
-            })} */}
+            })}
         </div>
     )
 }
