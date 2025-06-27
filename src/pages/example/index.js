@@ -4,6 +4,7 @@ import UseEffect from "./hook-example/useEffect/UseEffect";
 import UseRef from "./hook-example/useRef/UseRef";
 import PropsDrilling from "./hook-example/useContext/drilling/PropsDrilling";
 import UseContext from "./hook-example/useContext/context/UseContext";
+import UseMemo from "./hook-example/useMemo/UseMemo";
 
 export {
     Blog,
@@ -12,4 +13,5 @@ export {
     UseRef,
     PropsDrilling,
     UseContext,
+    UseMemo,
 }

@@ -1,7 +1,7 @@
 
 
 import { Home } from "../layout"
-import { Blog, UseState, UseEffect, UseRef, PropsDrilling, UseContext } from "../pages/example";
+import { Blog, UseState, UseEffect, UseRef, PropsDrilling, UseContext, UseMemo } from "../pages/example";
 
 export const targetPage = [
     {path: '/Home', label: 'Home', to: <Home />},
@@ -11,4 +11,5 @@ export const targetPage = [
     {path: '/useRef', label: 'useRef',to: <UseRef />},
     {path: '/propsDrilling', label: 'PropsDrilling',to: <PropsDrilling />},
     {path: '/useContext', label: 'useContext',to: <UseContext />},
+    {path: '/useMemo', label: 'useMemo',to: <UseMemo />},
 ]

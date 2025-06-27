@@ -103,8 +103,20 @@ button {
   overflow-x: auto;
   white-space: nowrap;
 }
+.scroll-content {
+  width: 1500px; /* 가로 길이 강제 설정 */
+  display: flex;
+  flex-wrap: wrap; /* 여러 줄 허용 */
+  gap: 10px; /* 요소 간 간격 (선택사항) */
+}
 /*
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
 */
+
+a.active {
+  font-weight: bold;
+  color: white;
+  /* text-decoration: underline; */
+}
