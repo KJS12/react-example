@@ -9,6 +9,10 @@ import UseCallback from "./hook-example/06.useCallback/UseCallback";
 import UseReducer from "./hook-example/07.useReducer/UseReducer";
 import ReactMemo from "./hook-example/08.reactMemo/ReactMemo";
 import CustomHook from "./hook-example/09.customHook/CustomHook";
+import UseId from "./hook-example/10.useId/UseId";
+import UseLayoutEffect from "./hook-example/11.useLayoutEffect/UseLayoutEffect";
+import Debounce from "./hook-example/12.debounce/Debounce";
+import Throttle from "./hook-example/13.throttle/Throttle"
 
 export {
     Blog,
@@ -21,4 +25,7 @@ export {
     UseReducer,
     ReactMemo,
     CustomHook,
+    UseId,
+    UseLayoutEffect,
+    Debounce, Throttle,
 }

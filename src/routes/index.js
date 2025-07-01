@@ -12,6 +12,9 @@ import {
     UseReducer,
     ReactMemo,
     CustomHook,
+    UseId,
+    UseLayoutEffect,
+    Debounce, Throttle,
 } from "../pages/example";
 
 export const targetPage = [
@@ -27,4 +30,8 @@ export const targetPage = [
     {path: '/useReducer', label: 'useReducer', to: <UseReducer />},
     {path: '/reactMemo', label: 'React.memo', to: <ReactMemo />},
     {path: '/customHook', label: 'CustomHook', to: <CustomHook />},
+    {path: '/useId', label: 'UseId', to: <UseId />},
+    {path: '/useLayoutEffect', label: 'UseLayoutEffect', to: <UseLayoutEffect />},
+    {path: '/debounce', label: 'Debounce', to: <Debounce />},
+    {path: '/throttle', label: 'Throttle', to: <Throttle />},
 ]
