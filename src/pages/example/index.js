@@ -8,6 +8,7 @@ import UseMemo from "./hook-example/useMemo/UseMemo";
 import UseCallback from "./hook-example/useCallback/UseCallback";
 import UseReducer from "./hook-example/useReducer/UseReducer";
 import ReactMemo from "./hook-example/reactMemo/ReactMemo";
+import CustomHook from "./hook-example/customHook/CustomHook";
 
 export {
     Blog,
@@ -19,4 +20,5 @@ export {
     UseCallback,
     UseReducer,
     ReactMemo,
+    CustomHook,
 }
