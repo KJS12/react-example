@@ -15,14 +15,14 @@ import {
 
 export const targetPage = [
     {path: '/Home', label: 'Home', to: <Home />},
-    {path: '/Blog', label: 'Blog',to: <Blog />},
-    {path: '/useState', label: 'useState',to: <UseState />},
+    {path: '/Blog', label: 'Blog', to: <Blog />},
+    {path: '/useState', label: 'useState', to: <UseState />},
     {path: '/useEffect', label: 'useEffect',to: <UseEffect />},
-    {path: '/useRef', label: 'useRef',to: <UseRef />},
-    {path: '/propsDrilling', label: 'PropsDrilling',to: <PropsDrilling />},
-    {path: '/useContext', label: 'useContext',to: <UseContext />},
-    {path: '/useMemo', label: 'useMemo',to: <UseMemo />},
-    {path: '/useCallback', label: 'useCallback',to: <UseCallback />},
-    {path: '/useReducer', label: 'useReducer',to: <UseReducer />},
-    {path: '/reactMemo', label: 'React.memo',to: <ReactMemo />},
+    {path: '/useRef', label: 'useRef', to: <UseRef />},
+    {path: '/propsDrilling', label: 'PropsDrilling', to: <PropsDrilling />},
+    {path: '/useContext', label: 'useContext', to: <UseContext />},
+    {path: '/useMemo', label: 'useMemo', to: <UseMemo />},
+    {path: '/useCallback', label: 'useCallback', to: <UseCallback />},
+    {path: '/useReducer', label: 'useReducer', to: <UseReducer />},
+    {path: '/reactMemo', label: 'React.memo', to: <ReactMemo />},
 ]
