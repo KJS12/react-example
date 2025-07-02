@@ -1,3 +1,44 @@
+div {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem;
+  gap: 20px;
+  font-weight: bold;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+a.active {
+  font-weight: bold;
+  color: white;
+  /* text-decoration: underline; */
+}
+
+
+input {
+  background: rgb(208, 235, 208);
+  border: 0;
+  border-radius: 5cap;
+  color: black;
+  padding: 0.25rem;
+}
+
+button {
+  background: rgb(79, 198, 79);
+  border: 0;
+  border-radius: 5cap;
+  color: white;
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
 .App {
   /* text-align: center; */
 }
@@ -31,40 +72,6 @@
   margin-top: 2cap;
   padding-left: 20px;
 } */
-
-div {
-    box-sizing: border-box;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.25rem;
-  gap: 20px;
-  font-weight: bold;
-}
-
-li a {
-    text-decoration: none;
-    color: black;
-}
-
-input {
-  background: rgb(208, 235, 208);
-  border: 0;
-  border-radius: 5cap;
-  color: black;
-  padding: 0.25rem;
-}
-
-button {
-  background: rgb(79, 198, 79);
-  border: 0;
-  border-radius: 5cap;
-  color: white;
-  padding: 0.25rem;
-  font-weight: bold;
-}
 
 .gap {
     gap: 0.25rem;
@@ -139,17 +146,12 @@ button {
   flex-wrap: wrap; /* 여러 줄 허용 */
   gap: 10px; /* 요소 간 간격 (선택사항) */
 }
+
 /*
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
 */
-
-a.active {
-  font-weight: bold;
-  color: white;
-  /* text-decoration: underline; */
-}
 
 .numbers {
   display: flex;

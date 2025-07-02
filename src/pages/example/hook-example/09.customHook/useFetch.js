@@ -8,6 +8,7 @@ export const useFetch = (baseUrl, initialValue) => {
         fetch(`${baseUrl}/${type}`)
         .then((res) => res.json())
         .then((res) => setData(res))
+        .catch((e) => console.log(e.message))
     }
 
     useEffect(() => {
