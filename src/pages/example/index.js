@@ -13,6 +13,8 @@ import UseId from "./hook-example/10.useId/UseId";
 import UseLayoutEffect from "./hook-example/11.useLayoutEffect/UseLayoutEffect";
 import Debounce from "./hook-example/12.debounce/Debounce";
 import Throttle from "./hook-example/13.throttle/Throttle"
+import TodoList from "./todoList/TodoList"
+import Parent from "./props/Parent"
 
 export {
     Blog,
@@ -28,4 +30,6 @@ export {
     UseId,
     UseLayoutEffect,
     Debounce, Throttle,
+    TodoList,
+    Parent,
 }

@@ -15,6 +15,8 @@ import {
     UseId,
     UseLayoutEffect,
     Debounce, Throttle,
+    TodoList,
+    Parent,
 } from "../pages/example";
 
 export const targetPage = [
@@ -34,4 +36,6 @@ export const targetPage = [
     {path: '/useLayoutEffect', label: 'UseLayoutEffect', to: <UseLayoutEffect />},
     {path: '/debounce', label: 'Debounce', to: <Debounce />},
     {path: '/throttle', label: 'Throttle', to: <Throttle />},
+    {path: '/todoList', label: 'TodoList', to: <TodoList />},
+    {path: '/props', label: 'Props', to: <Parent />},
 ]
