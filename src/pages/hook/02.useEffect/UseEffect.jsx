@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
+import { CodeViewer, CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
 
 const UseEffect = () => {
     const [showTimer, setShowTimer] = useState(false);
 
-
     return (
-        <div className="container">
-            {showTimer && <Timer />}
-            <button onClick={() => setShowTimer(!showTimer)}>ToggleTimer</button>
-        </div>
+        <>
+            <CodeViewerContainer>
+                <CodeViewer code={codeViewer.useEffect}/>
+                <CodeViewer code={codeViewer.useEffect_mount}/>
+                <CodeViewer code={codeViewer.useEffect_update}/>
+                <CodeViewer code={codeViewer.useEffect_unmount}/>
+            </CodeViewerContainer>
+            <div className="container">
+                {showTimer && <Timer />}
+                <button onClick={() => setShowTimer(!showTimer)}>ToggleTimer</button>
+            </div>
+        </>
     )
 }
 

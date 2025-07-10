@@ -1,11 +1,7 @@
 
 
 import { Home } from "../layout"
-import {
-    Blog,
-    TodoList,
-} from "../pages/example";
-
+import { Parent, PropsDrilling } from "../pages/props";
 import {
     UseState,
     UseEffect,
@@ -21,11 +17,8 @@ import {
     Debounce,
     Throttle,
 } from "../pages/hook";
+import { Blog, TodoList, } from "../pages/example";
 
-import {
-    Parent,
-    PropsDrilling
-} from "../pages/props";
 
 /**
  * 하위메뉴 X
@@ -55,7 +48,7 @@ export const targetPage = [
         path: '/props',
         label: 'Props',
         children: [
-            {path: 'parent', label: 'Parent', to: <Parent />},
+            {path: 'parent', label: 'Basic', to: <Parent />},
             {path: 'propsDrilling', label: 'PropsDrilling', to: <PropsDrilling />},
         ]
     },

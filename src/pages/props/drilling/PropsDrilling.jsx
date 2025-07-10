@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Page from "./Page";
+import codeViewer from "./codeViewer";
+import {CodeViewer, CodeViewerContainer} from "../../../components";
 
 /**
  * 내장 Context API 전역변수
@@ -11,10 +13,19 @@ const PropsDrilling = () => {
     const [isDark, setIsDark] = useState(false);
 
     return (
-        <Page
-            isDark={isDark}
-            setIsDark={setIsDark}
-        />
+        <>
+            <Page
+                isDark={isDark}
+                setIsDark={setIsDark}
+            />
+            <CodeViewerContainer>
+                <CodeViewer code={codeViewer.propsDrilling}/>
+                <CodeViewer code={codeViewer.childrenPage}/>
+                <CodeViewer code={codeViewer.childrenHeader}/>
+                <CodeViewer code={codeViewer.childrenContent}/>
+                <CodeViewer code={codeViewer.childrenFooter}/>
+            </CodeViewerContainer>
+        </>
     )
 }
 

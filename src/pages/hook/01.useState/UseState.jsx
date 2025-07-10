@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "../../../hooks";
+import { CodeViewer, CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
 
 const heavyWork = () => {
     console.log('엄청 무거운 작업');
@@ -24,6 +26,9 @@ const UseState = () => {
 
     return (
         <div>
+            <CodeViewerContainer>
+                <CodeViewer code={codeViewer.useState} />
+            </CodeViewerContainer>
             <input
                 name="name"
                 value={formData.name}

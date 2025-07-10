@@ -1,5 +1,22 @@
-import { useEffect, useRef, useState } from "react";
-import { CodeViewer, CodeViewerContainer } from "../../../components";
+const codeViewer = {
+useRef:
+`React 내장 Hook (useRef)
+/**
+ * DOM 요소나 값을 참조(ref) 할 수 있는 객체를 반환하며, 값이 변경되도 리렌더링이 발생하지 않는다.
+ */
+
+import { useRef } from "react";
+const ref1 = useRef(); // {current: undefined}
+const ref2 = useRef(null); // {current: null}
+const ref3 = useRef(1); // {current: 1}
+
+console.log(ref1.current); // undefined
+console.log(ref2.current); // null
+console.log(ref3.current); // 1
+`,
+
+useRef_example:
+`import { useEffect, useRef, useState } from "react";
 import codeViewer from "./codeViewer";
 
 const UseRef = () => {
@@ -17,7 +34,7 @@ const UseRef = () => {
     }, []);
 
     const login = () => {
-        alert(`환영합니다. ${inputRef.current.value}`);
+        alert(\`환영합니다. \${inputRef.current.value}\`);
         inputRef.current.focus();
     }
 
@@ -41,15 +58,11 @@ const UseRef = () => {
     }
 
     const printResults = () => {
-        console.log(`ref: ${countRef.current}, var: ${countVar}`)
+        console.log(\`ref: \${countRef.current}, var: \${countVar}\`)
     }
 
     return (
         <>
-            <CodeViewerContainer>
-                <CodeViewer code={codeViewer.useRef}/>
-                <CodeViewer code={codeViewer.useRef_example}/>
-            </CodeViewerContainer>
             <div className="container-line">
                 <p>Ref: {countRef.current}</p>
                 <p>Var: {countVar}</p>
@@ -71,5 +84,8 @@ const UseRef = () => {
         </>
     )
 }
-
 export default UseRef;
+`,
+}
+
+export default codeViewer;
