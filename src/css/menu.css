@@ -1,52 +1,26 @@
-/* Start Menu css */
-/* 전체 검색 컨테이너 */
-.search-container {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-}
-
-/* 입력창 스타일 */
-.search-container input {
-  width: 100%;
-  height: 50px;
-  padding-left: 20px;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-/* 리스트 항목 스타일 */
-.search-container li {
-  border: 1px solid gray;
-  font-size: 30px;
-  list-style: none;
-  border-top: none;
-  background-color: rgb(232, 232, 232);
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-}
-
+/* 상단메뉴 (depth 1) */
 .menu-item {
   position: relative; /* 하위 메뉴 위치 기준 */
   display: inline-block;
   padding: 5px 10px;
 }
 
-.menu-item.has-children > a:hover {
-  cursor: default;
+/* 상단메뉴 (depth 1) 선택시 */
+.menu-item a.active {
+  color: white;
 }
 
+/* 상단메뉴 (depth 1) 마우스 올리면 하위메뉴 영역 보이기 */
 .menu-item:hover > .submenu {
   display: block; /* 마우스 올리면 표시 */
 }
 
-.menu-item a.active {
-  color: white;
-  background-color: #007bff; /* 원하는 강조 색상 */
-  border-radius: 4px;
+/* 하위메뉴 (depth 2) 마우스 올렸을때  */
+.menu-item.has-children > a:hover {
+  cursor: default;
 }
 
+/* 하위메뉴 (depth 2) */
 .submenu {
   display: none; /* 기본 숨김 */
   position: absolute;
@@ -61,16 +35,19 @@
   overflow-y: auto;     /* ✅ 세로 스크롤 추가 */
 }
 
+/* 하위메뉴 (depth 1) 목록 */
 .submenu > li {
   padding: 8px 15px;
   white-space: nowrap;
 }
 
+/* 하위메뉴 (depth 2) 마우스 올렸을때 */
 .submenu > li:hover {
   background-color: #f0f0f0;
 }
 
-/* 스크롤바 숨기기 */
-.scroll-container::-webkit-scrollbar {
-  display: none;
+/* 하위메뉴 (depth 2) 목록 선택시  */
+.submenu > li > a.active {
+  color: #007bff;
+  border-bottom: 1px solid #007bff;
 }

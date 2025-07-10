@@ -21,7 +21,7 @@ const renderMenu = (pages, basePath = "") => {
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
                     {page.label}
-                    {hasChildren && "▼"}
+                    {hasChildren && "⬇️"}
                 </NavLink>
                 {
                     hasChildren && (

@@ -27,6 +27,24 @@ import {
     PropsDrilling
 } from "../pages/props";
 
+/**
+ * 하위메뉴 X
+ * {
+ *     path: '/example',
+ *     label: 'example',
+ *     to: <Exam1 />
+ * },
+ *
+ * 하위메뉴 O
+ * {
+ *     path: '/example',
+ *     label: 'example',
+ *     children: [
+ *         {path: 'exam1', label: 'exam1', to: <Exam1 />},
+ *         {path: 'exam2', label: 'exam2', to: <Exam2 />},
+ *     ],
+ * },
+*/
 export const targetPage = [
     {
         path: '/',
@@ -36,7 +54,10 @@ export const targetPage = [
     {
         path: '/props',
         label: 'Props',
-        to: <Parent />
+        children: [
+            {path: 'parent', label: 'Parent', to: <Parent />},
+            {path: 'propsDrilling', label: 'PropsDrilling', to: <PropsDrilling />},
+        ]
     },
     {
         path: '/hook',
@@ -45,7 +66,6 @@ export const targetPage = [
             {path: 'useState', label: 'useState', to: <UseState />},
             {path: 'useEffect', label: 'useEffect',to: <UseEffect />},
             {path: 'useRef', label: 'useRef', to: <UseRef />},
-            {path: 'propsDrilling', label: 'PropsDrilling', to: <PropsDrilling />},
             {path: 'useContext', label: 'useContext', to: <UseContext />},
             {path: 'useMemo', label: 'useMemo', to: <UseMemo />},
             {path: 'useCallback', label: 'useCallback', to: <UseCallback />},
@@ -59,13 +79,11 @@ export const targetPage = [
         ],
     },
     {
-        path: '/blog',
-        label: 'Blog',
-        to: <Blog />
-    },
-    {
-        path: '/todoList',
-        label: 'TodoList',
-        to: <TodoList />
+        path: '/example',
+        label: 'example',
+        children: [
+            {path: 'blog', label: 'Blog', to: <Blog />},
+            {path: 'todoList', label: 'TodoList', to: <TodoList />},
+        ],
     },
 ]

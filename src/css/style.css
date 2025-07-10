@@ -136,3 +136,36 @@
 .mr-5 {
   margin-right: 5px;
 }
+
+/* 전체 검색 컨테이너 */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+/* 입력창 스타일 */
+.search-container input {
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* 리스트 항목 스타일 */
+.search-container li {
+  border: 1px solid gray;
+  font-size: 30px;
+  list-style: none;
+  border-top: none;
+  background-color: rgb(232, 232, 232);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* 스크롤바 숨기기 */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
