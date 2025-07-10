@@ -2,14 +2,30 @@
 
 import { Home } from "../layout"
 import {
-    Parent,
-    UseState, UseEffect, UseRef,
-    PropsDrilling, UseContext,
-    UseMemo, UseCallback, UseReducer, ReactMemo,
-    CustomHook, UseId, UseLayoutEffect,
-    Debounce, Throttle,
-    Blog, TodoList,
+    Blog,
+    TodoList,
 } from "../pages/example";
+
+import {
+    UseState,
+    UseEffect,
+    UseRef,
+    UseContext,
+    UseMemo,
+    UseCallback,
+    UseReducer,
+    ReactMemo,
+    CustomHook,
+    UseId,
+    UseLayoutEffect,
+    Debounce,
+    Throttle,
+} from "../pages/hook";
+
+import {
+    Parent,
+    PropsDrilling
+} from "../pages/props";
 
 export const targetPage = [
     {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Page from "./Page";
-import { ThemeContext } from "./ThemeContext";
-import { UserContext } from "./UserContext";
+import { ThemeContext } from "./context/ThemeContext";
+import { UserContext } from "./context/UserContext";
 
 /**
  * 내장 Context API 전역변수

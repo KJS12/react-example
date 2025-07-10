@@ -1,4 +1,4 @@
-import { useThemeContext } from "./ThemeContext";
+import { useThemeContext } from "./context/ThemeContext";
 
 const Footer = () => {
     const {isDark, setIsDark} = useThemeContext();

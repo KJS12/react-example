@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { targetPage } from "../routes";
 
-
-
 const renderMenu = (pages, basePath = "") => {
     return pages.map((page, index) => {
         const fullPath = page.path.startsWith("/")  // (/props, /hook...)

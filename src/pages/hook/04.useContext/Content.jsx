@@ -1,20 +1,20 @@
-import { useThemeContext } from "./ThemeContext";
-import { useUserContext } from "./UserContext";
+import { useThemeContext } from "./context/ThemeContext";
+import { useUserContext } from "./context/UserContext";
 
-const Header = () => {
+const Content = () => {
     const {isDark} = useThemeContext();
     const username = useUserContext() || "테스트";
     return (
-        <header
-            className="header"
+        <div
+            className="content"
             style={{
                 backgroundColor: isDark ? 'black' : 'lightgray',
                 color: isDark ? 'white' : 'black',
             }}
         >
-            <h1>Welcome {username}!</h1>
-        </header>
+            <p>{username}님, 좋은 하루 되세요</p>
+        </div>
     )
 }
 
-export default Header;
+export default Content;

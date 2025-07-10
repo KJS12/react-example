@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "../../../../hooks";
+import { useForm } from "../../../hooks";
 
 const heavyWork = () => {
     console.log('엄청 무거운 작업');
