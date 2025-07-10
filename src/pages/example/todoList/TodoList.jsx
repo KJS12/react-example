@@ -1,46 +1,36 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { Form } from "react-router-dom";
 import { JUtilsValid } from "../../../utils/utils";
-import { useInput } from "../../../hooks/useInput";
-import { Tag } from "../../../share";
-
-// 초기 데이터
-const initialValue = {
-    list: []
-}
-
-const reducer = (state, action) => {
-    // if(JUtilsValid.isEmpty(state)) return;
-    console.log("변경 데이터", state.list, action.payload);
-    switch (action.type) {
-        case 'add':
-            return {...state, list: [...state.list, {...action.payload, id: Date.now()}]};
-        case 'update':
-            return {
-                ...state,
-                list: state.list.map((prev) => (
-                    prev.id === action.payload.id ? {...prev, ...action.payload} : prev
-                ))
-            }
-        case 'delete':
-            return {
-                ...state,
-                list: state.list.filter(prev => prev.id !== action.payload.id)
-            };
-        default:
-            return state;
-    }
-}
+import { useInput } from "../../../hooks";
+import { InputBox, RadioBox } from "../../../shared/inputs";
+import { inputValue, REPAYMENT_TYPE, repaymentList } from "./data";
+import { reducer } from "./reducer";
+import { theme } from "../../../utils/theme";
 
 /**
  * 할일 관리
  * @returns
  */
 const TodoList = () => {
-    const {input, handleChange, resetInput} = useInput({title: '', content: ''});
-    const titleRef = useRef(null);
-    const contentRef = useRef(null);
-    const [todoList, dispatch] = useReducer(reducer, initialValue);
+    const {input, handleChange, resetInput} = useInput(inputValue);
+    const inputRefs = useRef({});
+    const [todoList, dispatch] = useReducer(reducer, {list: []});
+
+    const validation = () => {
+        for (let key of Object.keys(inputValue)) {
+            // console.log(key)
+            const input = inputRefs.current[key];
+            if(!input) continue;
+
+            const value = input.value;
+            if(JUtilsValid.isEmpty(value)) {
+                alert(`${key} 항목을 입력/선택해주세요`);
+                input.focus();
+                return false;
+            }
+        }
+        return true;
+    }
 
     // 등록 이벤트
     const handleSubmit = (e) => {
@@ -48,108 +38,129 @@ const TodoList = () => {
         e.preventDefault();
 
         // 유효성 검사
-        if(JUtilsValid.isEmpty(titleRef.current.value)) {
-            alert("제목을 입력해주세요");
-            titleRef.current.focus();
-            return;
-        }
-
-        if(JUtilsValid.isEmpty(contentRef.current.value)) {
-            alert("내용을 입력해주세요");
-            contentRef.current.focus();
-            return;
-        }
+        if(!validation()) return;
 
         // 등록하기
-        processAdd();
+        processAdd(input);
 
         // 입력 데이터 초기화
         resetInput();
 
-        titleRef.current.value = null;
-        contentRef.current.value = null;
+        inputRefs.current['title'].value = null;
+        inputRefs.current['content'].value = null;
     }
 
-    const processAdd = () =>  dispatch({type: 'add', payload: input});
-    const processUpd = (input) => dispatch({type: 'update', payload: input});
-    const processDel = (input) => dispatch({type: 'delete', payload: input});
+    // 추가하기
+    const processAdd = (data) =>  dispatch({type: 'add', payload: data});
+    // 수정하기
+    const processUpd = (data) => dispatch({type: 'update', payload: data});
+    // 삭제하기
+    const processDel = (data) => dispatch({type: 'delete', payload: data});
+
+    useEffect(() => {
+        console.log(inputRefs)
+    },[inputRefs])
 
     return (
         <div>
             <h3>할일 등록</h3>
             <Form onSubmit={handleSubmit} style={{marginBottom: '10px'}}>
-                <Tag.InputBox
+                <InputBox
                     label="제목"
-                    ref={titleRef}
-                    id="title"
+                    ref={(el) => (inputRefs.current['title'] = el)}
                     name="title"
                     value={input.title}
                     onChange={handleChange}
                 />
-                <Tag.InputBox
+                <InputBox
                     label="내용"
-                    ref={contentRef}
-                    id="content"
+                    ref={(el) => (inputRefs.current['content'] = el)}
                     name="content"
                     value={input.content}
                     onChange={handleChange}
                 />
                 <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <Tag.RadioBox
-                        label="예"
-                        // id="select1"
-                        name="radioExample1"
-                        value={input.radioExample1}
+                    <span className="strong mr-5">약관선택 1</span>
+                    <RadioBox
+                        list={[
+                            {name: 'agree1', value: 'Y', label: '예'},
+                            {name: 'agree1', value: 'N', label: '아니오'},
+                        ]}
                         onChange={handleChange}
-                    />
-                    <Tag.RadioBox
-                        label=" 아니오"
-                        // id="select2"
-                        name="radioExample1"
-                        value={input.radioExample1}
-                        onChange={handleChange}
+                        ref={(el) => (inputRefs.current['agree1'] = el)}
                     />
                 </div>
                 <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <Tag.RadioBox
-                        label="예"
-                        // id="select1"
-                        name="radioExample2"
-                        value={input.radioExample2}
+                    <span className="strong mr-5">약관선택 2</span>
+                    <RadioBox
+                        list={[
+                            {name: 'agree2', value: 'Y', label: '예'},
+                            {name: 'agree2', value: 'N', label: '아니오'},
+                        ]}
                         onChange={handleChange}
-                    />
-                    <Tag.RadioBox
-                        label=" 아니오"
-                        // id="select2"
-                        name="radioExample2"
-                        value={input.radioExample2}
-                        onChange={handleChange}
+                        ref={(el) => (inputRefs.current['agree2'] = el)}
                     />
                 </div>
-                <Tag.Button type="submit">
+                <div className="select" style={{display: "flex", gap: '5px'}}>
+                    <span className="strong mr-5">약관선택 3</span>
+                    <RadioBox
+                        list={[
+                            {name: 'agree3', value: 'Y', label: '예'},
+                            {name: 'agree3', value: 'N', label: '아니오'},
+                        ]}
+                        onChange={handleChange}
+                        ref={(el) => (inputRefs.current['agree3'] = el)}
+                    />
+                </div>
+                <div className="select" style={{display: "flex", gap: '5px'}}>
+                    <span className="strong mr-5">항목선택</span>
+                    <RadioBox
+                        list={repaymentList('chk1')}
+                        onChange={handleChange}
+                        ref={(el) => (inputRefs.current['chk1'] = el)}
+                    />
+                </div>
+                {input.chk1 &&
+                    (
+                        <div>
+                            {REPAYMENT_TYPE[input.chk1]}
+                        </div>
+                    )
+                }
+                <button type="submit">
                     등록
-                </Tag.Button>
+                </button>
             </Form>
             <div>
-                {todoList.list.map((item, idx) => (
-                    <table key={idx} style={{borderBlockEnd: '1px solid gray', width: '300px', textAlign: 'left'}}>
-                        <thead>
-                            <tr>
-                                <th>{item.title}</th>
-                                <th>버튼</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
+                <table style={{borderBlock: '1px solid gray', width: '500px', textAlign: 'center'}}>
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>내용</th>
+                            <th>약관1</th>
+                            <th>약관2</th>
+                            <th>약관3</th>
+                            <th>체크1</th>
+                            <th>event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {todoList.list.map((item, idx) => (
+                            <tr key={idx}>
+                                <td>{item.title}</td>
                                 <td>{item.content}</td>
+                                <td>{item.agree1}</td>
+                                <td>{item.agree2}</td>
+                                <td>{item.agree3}</td>
+                                <td>{item.chk1}</td>
                                 <td>
-                                    <button style={{backgroundColor: 'skyblue'}} onClick={() => processUpd(item)}>수정</button>
-                                    <button style={{backgroundColor: 'red'}} onClick={() => processDel(item)}>삭제</button>
+                                    <button style={{backgroundColor: theme.color.primary}} onClick={() => processUpd(item)}>수정</button>
+                                    <button style={{backgroundColor: theme.color.danger}} onClick={() => processDel(item)}>삭제</button>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                ))}
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ export const useInput = (initialValue) => {
 
     // 초기화
     const resetInput = () => {
-        setInput({initialValue});
+        setInput(initialValue);
     }
 
     return {

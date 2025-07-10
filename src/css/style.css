@@ -1,0 +1,138 @@
+
+.d-flex {
+  display: flex;
+}
+
+.layout-header {
+  display: flex;
+  background: black;
+  color: white;
+  padding-left: 20px;
+}
+
+.layout-menu {
+  margin-bottom: 20px;
+  padding: 0.25rem;
+  background: rgb(213, 64, 64);
+}
+
+.layout-content {
+  padding: 5px;
+  /* background: #eee; */
+  height: auto;
+}
+
+.layout-footer {
+  background: black;
+  color: white;
+  margin-top: 2cap;
+  padding-left: 20px;
+}
+
+.gap {
+    gap: 0.25rem;
+}
+
+.line-none {
+  text-decoration-line: none;
+}
+
+.line-under {
+  text-decoration-line: underline;
+}
+
+.line-over {
+  text-decoration-line: overline;
+}
+
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.t-white {
+  color: white;
+}
+
+.t-black {
+  color: black;
+}
+
+.container {
+  font-family: sans-serif;
+}
+
+.numbers {
+  display: flex;
+  gap: 15px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.number {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  color: white;
+  width: 70px;
+  height: 70px;
+  font-size: 25px;
+  border-radius: 1ch;
+}
+
+
+/* radioBox css */
+/* padding: top right bottom left */
+.select {
+    padding: 15px 10px 10px 0px;
+}
+.select input[type=radio]{
+    display: none;
+}
+.select input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.select input[type=radio]+label{
+    background-color: #fff;
+    color: #333;
+}
+.select input[type=radio]:checked+label{
+    background-color: #333;
+    color: #fff;
+}
+
+.strong, .bold {
+  font-weight: bold;
+}
+
+.mr-1 {
+  margin-right: 1px;
+}
+
+.mr-2 {
+  margin-right: 2px;
+}
+
+.mr-3 {
+  margin-right: 3px;
+}
+
+.mr-4 {
+  margin-right: 4px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}

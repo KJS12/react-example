@@ -1,7 +1,9 @@
-import { Link, useRouteError } from "react-router-dom";
+import { Link, useNavigate, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
     const {status, statusText, data} = useRouteError();
+
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -10,9 +12,12 @@ const ErrorPage = () => {
             {statusText && <p>{statusText}</p>}
             {data && <p>{data}</p>}
 
-            <Link to="/">
-                <button type="button">메인 이동</button>
-            </Link>
+            <div className="d-flex gap">
+                <button type="button" onClick={() => navigate(-1)}>뒤로가기</button>
+                <Link to="/">
+                    <button type="button">메인 이동</button>
+                </Link>
+            </div>
         </div>
     )
 }

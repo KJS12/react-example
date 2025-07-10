@@ -2,7 +2,9 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";
 import { Outlet } from "react-router-dom";
-import '../App.css';
+import '../css/App.css';
+import '../css/menu.css';
+import '../css/style.css';
 
 const Layout = () => {
     return (
@@ -16,9 +18,9 @@ const Layout = () => {
             <div className="layout-content">
                 <Outlet />
             </div>
-            {/* <div className="layout-footer">
+            <div className="layout-footer">
                 <Footer />
-            </div> */}
+            </div>
         </div>
     )
 }

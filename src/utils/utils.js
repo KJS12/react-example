@@ -15,7 +15,7 @@ const validation = {
     },
 
     isNotEmpty: (data) =>{
-        return !(validation.isEmpty);
+        return !(validation.isEmpty(data));
     }
 }
 
