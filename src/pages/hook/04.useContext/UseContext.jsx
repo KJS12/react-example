@@ -19,7 +19,8 @@ const UseContext = () => {
             <CodeViewerContainer
                 files={{
                     "설명": codeViewer.description,
-                    "context": codeViewer.context,
+                    "themeContext": codeViewer.themeContext,
+                    "userContext": codeViewer.userContext,
                     "useContext": codeViewer.useContext,
                     "page": codeViewer.page,
                     "header": codeViewer.header,
