@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { CodeViewer, CodeViewerContainer } from "../../../components";
+import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
 
 const UseRef = () => {
@@ -46,10 +46,13 @@ const UseRef = () => {
 
     return (
         <>
-            <CodeViewerContainer>
-                <CodeViewer code={codeViewer.useRef}/>
-                <CodeViewer code={codeViewer.useRef_example}/>
-            </CodeViewerContainer>
+            <CodeViewerContainer
+                files={{
+                    "설명": codeViewer.description,
+                    "useRef": codeViewer.useRef,
+                    "example": codeViewer.useRef_example,
+                }}
+            />
             <div className="container-line">
                 <p>Ref: {countRef.current}</p>
                 <p>Var: {countVar}</p>

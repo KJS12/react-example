@@ -1,8 +1,7 @@
 const codeViewer = {
 // [CodeViewer] Home
 home:
-`Home.jsx
-const Home = () => {
+`const Home = () => {
     return (
         <div>Home 입니다.</div>
     )
@@ -13,8 +12,7 @@ export default Home;
 
 // [CodeViewer] Header
 header:
-`Header.jsx
-import { Link } from "react-router-dom";
+`import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <div>
@@ -32,8 +30,7 @@ export default Header;
 
 // [CodeViewer] Layout
 layout:
-`Layout.jsx
-import Menu from "./Menu";
+`import Menu from "./Menu";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
@@ -66,8 +63,7 @@ export default Layout;
 
 // [CodeViewer] Footer
 footer:
-`Footer.jsx
-const Footer = () => {
+`const Footer = () => {
     return (
         <footer>Footer</footer>
     )

@@ -6,6 +6,7 @@ import '../css/App.css';
 import '../css/menu.css';
 import '../css/style.css';
 import '../css/layout.css';
+import '../css/codeViewer.css';
 
 const Layout = () => {
     return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "../../../hooks";
-import { CodeViewer, CodeViewerContainer } from "../../../components";
+import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
 
 const heavyWork = () => {
@@ -26,9 +26,12 @@ const UseState = () => {
 
     return (
         <div>
-            <CodeViewerContainer>
-                <CodeViewer code={codeViewer.useState} />
-            </CodeViewerContainer>
+            <CodeViewerContainer
+                files={{
+                    "설명": codeViewer.description,
+                    "useState": codeViewer.useState,
+                }}
+            />
             <input
                 name="name"
                 value={formData.name}

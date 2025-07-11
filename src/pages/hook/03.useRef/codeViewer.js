@@ -1,11 +1,12 @@
 const codeViewer = {
-useRef:
+description:
 `React 내장 Hook (useRef)
 /**
  * DOM 요소나 값을 참조(ref) 할 수 있는 객체를 반환하며, 값이 변경되도 리렌더링이 발생하지 않는다.
  */
-
-import { useRef } from "react";
+`,
+useRef:
+`import { useRef } from "react";
 const ref1 = useRef(); // {current: undefined}
 const ref2 = useRef(null); // {current: null}
 const ref3 = useRef(1); // {current: 1}

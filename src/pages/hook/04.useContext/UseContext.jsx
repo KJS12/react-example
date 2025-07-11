@@ -2,6 +2,8 @@ import { useState } from "react";
 import Page from "./Page";
 import { ThemeContext } from "./context/ThemeContext";
 import { UserContext } from "./context/UserContext";
+import { CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
 
 /**
  * 내장 Context API 전역변수
@@ -13,11 +15,24 @@ const UseContext = () => {
     const [isDark, setIsDark] = useState(false);
 
     return (
-        <UserContext.Provider value={"사용자"}>
-            <ThemeContext.Provider value={{isDark, setIsDark}}>
-                <Page />
-            </ThemeContext.Provider>
-        </UserContext.Provider>
+        <>
+            <CodeViewerContainer
+                files={{
+                    "설명": codeViewer.description,
+                    "context": codeViewer.context,
+                    "useContext": codeViewer.useContext,
+                    "page": codeViewer.page,
+                    "header": codeViewer.header,
+                    "content": codeViewer.content,
+                    "footer": codeViewer.footer,
+                }}
+            />
+            <UserContext.Provider value={"사용자"}>
+                <ThemeContext.Provider value={{isDark, setIsDark}}>
+                    <Page />
+                </ThemeContext.Provider>
+            </UserContext.Provider>
+        </>
     )
 }
 

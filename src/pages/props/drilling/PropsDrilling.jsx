@@ -14,17 +14,19 @@ const PropsDrilling = () => {
 
     return (
         <>
+            <CodeViewerContainer
+                files={{
+                    "propsDrilling": codeViewer.propsDrilling,
+                    "Page": codeViewer.childPage,
+                    "Header": codeViewer.childHeader,
+                    "Content": codeViewer.childContent,
+                    "Footer": codeViewer.childFooter,
+                }}
+            />
             <Page
                 isDark={isDark}
                 setIsDark={setIsDark}
             />
-            <CodeViewerContainer>
-                <CodeViewer code={codeViewer.propsDrilling}/>
-                <CodeViewer code={codeViewer.childrenPage}/>
-                <CodeViewer code={codeViewer.childrenHeader}/>
-                <CodeViewer code={codeViewer.childrenContent}/>
-                <CodeViewer code={codeViewer.childrenFooter}/>
-            </CodeViewerContainer>
         </>
     )
 }

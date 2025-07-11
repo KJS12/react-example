@@ -1,7 +1,6 @@
 const codeViewer = {
 propsDrilling:
-`Props Drilling 예시
-import { useState } from "react";
+`import { useState } from "react";
 import Page from "./Page";
 
 const PropsDrilling = () => {
@@ -18,9 +17,8 @@ const PropsDrilling = () => {
 export default PropsDrilling;
 `,
 
-childrenPage:
-`Props Drilling → children
-import Content from "./Content";
+childPage:
+`import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -37,9 +35,8 @@ const Page = ({isDark, setIsDark}) => {
 export default Page;
 `,
 
-childrenHeader:
-`Props Drilling → children header
-const Header = ({isDark}) => {
+childHeader:
+`const Header = ({isDark}) => {
     return (
         <header
             className="header"
@@ -56,9 +53,8 @@ const Header = ({isDark}) => {
 export default Header;
 `,
 
-childrenContent:
-`Props Drilling → children content
-const Content = ({isDark}) => {
+childContent:
+`const Content = ({isDark}) => {
     return (
         <div
             className="content"
@@ -75,9 +71,8 @@ const Content = ({isDark}) => {
 export default Content;
 `,
 
-childrenFooter:
-`Props Drilling → children footer
-const Footer = ({isDark, setIsDark}) => {
+childFooter:
+`const Footer = ({isDark, setIsDark}) => {
     const toggleTheme = () => {
         setIsDark(!isDark);
     };

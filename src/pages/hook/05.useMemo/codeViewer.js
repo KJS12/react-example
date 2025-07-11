@@ -1,6 +1,33 @@
-import { useEffect, useMemo, useState } from "react";
-import { CodeViewerContainer } from "../../../components";
-import codeViewer from "./codeViewer";
+const codeViewer = {
+description:
+`React 내장 Hook (useMemo)
+- '값'을 메모이제이션하여, 계산 비용이 높은 작업을 반복하지 않도록 하며,
+- 의존성이 바뀌지 않으면 이전 결과를 재사용한다.
+
+/**
+ * const 변수명 = useMemo(arg1, arg2);
+ * - arg1 → 반드시 값을 리턴하는 함수
+ * - arg2 → 의존성 배열
+ */
+`,
+
+useMemo:
+`import { useMemo } from "react";
+
+※ 아래 문법은 기능적 차이는 없으며, 개발자의 취향이나 상황에 따라 사용하면 된다.
+
+// 예시 1) 가독성
+const value = useMemo(() => {
+    // 복잡한 계산
+    return computeSomething();
+}, [computeSomething]);
+
+// 예시 2) 간결함
+const value = useMemo(() => computeSomething(), [computeSomething]);
+`,
+
+example:
+`import { useEffect, useMemo, useState } from "react";
 
 const hardCalculate = (number) => {
     console.log('어려운 계산!');
@@ -14,11 +41,6 @@ const easyCalculate = (number) => {
     return number + 1;
 }
 
-/**
- * useMemo( () => {
- * }, [dependency]);
- * @returns 
- */
 const UseMemo = () => {
     const [hardNumber, setHardNumber] = useState(1);
     const [easyNumber, setEasyNumber] = useState(1);
@@ -46,13 +68,6 @@ const UseMemo = () => {
 
     return (
         <div>
-            <CodeViewerContainer
-                files={{
-                    "설명": codeViewer.description,
-                    "useMemo": codeViewer.useMemo,
-                    "example": codeViewer.example,
-                }}
-            />
             <div className="container-line">
                 <h1>어려운 계산기</h1>
                 <input
@@ -87,3 +102,7 @@ const UseMemo = () => {
 }
 
 export default UseMemo;
+`,
+}
+
+export default codeViewer;

@@ -1,15 +1,16 @@
 const codeViewer = {
-useEffect:
+description:
 `React 내장 Hook (useEffect)
 /**
  * 컴포넌트가 렌더링 된 후 '비동기적'으로 실행한다.
  *
- * useEffect(첫번째 인자, 두번째 인자);
- * - 첫번째 인자 → 실행할 함수 (필수)
- * - 두번째 인자 → 의존성 배열 (선택, 생략 가능)
+ * useEffect(arg1, arg2);
+ * - arg1 → 실행할 함수 (필수)
+ * - arg2 → 의존성 배열 (선택, 생략 가능)
  */
-
-// 매 렌더링마다 실행한다.
+`,
+useEffect:
+`// 매 렌더링마다 실행한다.
 import { useEffect } from "react";
 useEffect(() => {
     console.log("컴포넌트가 마운트됨!");
@@ -26,7 +27,6 @@ useEffect(() => {
 useEffect_update:
 `// 첫 렌더링시 실행 + 두번째 인자 값이 변경될 때만 실행한다.
 import { useState, useEffect } from "react";
-
 const [count, setCount] = useState(0);
 
 useEffect(() => {

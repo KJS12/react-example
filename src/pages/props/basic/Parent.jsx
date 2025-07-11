@@ -1,15 +1,18 @@
-import { CodeViewer, CodeViewerContainer } from '../../../components';
+import { CodeViewerContainer } from '../../../components';
 import Child from './Child';
 import codeViewer from './codeViewer';
 
 const Parent = () => {
     return (
         <>
-            <CodeViewerContainer>
-                <CodeViewer code={codeViewer.props} />
-                <CodeViewer code={codeViewer.props_Child_1} />
-                <CodeViewer code={codeViewer.props_Child_2} />
-            </CodeViewerContainer>
+            <CodeViewerContainer
+                files={{
+                    "설명": codeViewer.description,
+                    "Parent Component": codeViewer.props,
+                    "Child Component_1": codeViewer.props_Child_1,
+                    "Child Component_2": codeViewer.props_Child_2,
+                }}
+            />
             <Child
                 boolValue={true}
                 numValue={1}
