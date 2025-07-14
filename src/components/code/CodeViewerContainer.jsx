@@ -1,12 +1,13 @@
 import { useState } from "react";
 import CodeViewer from "./CodeViewer";
 
-const CodeViewerContainer = ({files}) => {
+const CodeViewerContainer = ({title, files}) => {
     const fileNames = Object.keys(files);
     const [activeTab, setActiveTab] = useState(fileNames[0]);
 
     return (
         <>
+            {title && <h1>{title}</h1>}
              {/* 탭 버튼 */}
             <div className="code-tabs">
                 {fileNames.map((filename) => (

@@ -6,20 +6,24 @@
     gap: 0.25rem;
 }
 
-.line-none {
+.t-line-none {
   text-decoration-line: none;
 }
 
-.line-under {
+.t-line-under {
   text-decoration-line: underline;
 }
 
-.line-over {
+.t-line-over {
   text-decoration-line: overline;
 }
 
-.line-through {
+.t-line-through {
   text-decoration-line: line-through;
+}
+
+.hr {
+  border-bottom: 1px solid gray;
 }
 
 .t-white {

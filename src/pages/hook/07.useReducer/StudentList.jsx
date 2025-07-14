@@ -3,7 +3,7 @@ const StudentList = ({name, dispatch, id, isHere}) => {
         <div>
             <span
                 style={{
-                    textDecoration: isHere ? 'line-through' : 'none',
+                    textDecoration: isHere ? 't-line-through' : 'none',
                     color: isHere ? 'gray' : 'black'
                 }}
                 onClick={() => {

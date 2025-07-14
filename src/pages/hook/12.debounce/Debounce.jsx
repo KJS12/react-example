@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from "react";
 import { useDebounce } from "./useDebounce";
+import { CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
 
 /**
  *  @description
@@ -24,21 +26,33 @@ const Debounce = () => {
     }, [debouncedInput]);
 
     return (
-        <div className="container">
-            <div className="search-container">
-                <input
-                    placeholder="여기다 검색하세요"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                />
-                <ul>
-                    {result.map((user, idx) => (
-                        <li key={idx}>
-                            <span>{user.name}</span>
-                            <span>{user.age}세</span>
-                        </li>
-                    ))}
-                </ul>
+        <div>
+            <CodeViewerContainer
+                title={"Debounce"}
+                files={{
+                    "설명": codeViewer.description,
+                    "useDebounce": codeViewer.useDebounce,
+                    "example": codeViewer.example,
+                }}
+            />
+            <br />
+
+            <div className="container">
+                <div className="search-container">
+                    <input
+                        placeholder="여기다 검색하세요"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                    />
+                    <ul>
+                        {result.map((user, idx) => (
+                            <li key={idx}>
+                                <span>{user.name}</span>
+                                <span>{user.age}세</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     )

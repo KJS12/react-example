@@ -6,6 +6,7 @@ const Parent = () => {
     return (
         <>
             <CodeViewerContainer
+                title={"Props"}
                 files={{
                     "설명": codeViewer.description,
                     "Parent Component": codeViewer.props,

@@ -1,42 +1,26 @@
-import { useCallback, useMemo, useState } from "react";
-import ReactMemoChild from "./ReactMemoChild";
-import ReactMemoAndUseMemoChild from "./ReactMemoAndUseMemoChild";
-import ReactMemoAndUseCallbackChild from "./ReactMemoAndUseCallbackChild";
-import { CodeViewerContainer } from "../../../components";
-import codeViewer from "./codeViewer";
+const codeViewer = {
+description:
+`React 내장 Hook (React.memo)
+- 컴포넌트가 동일한 props를 받을 때, 불필요한 리렌더링을 방지하기 위해 사용된다.
+- '원시 타입 (숫자, 문자열 등)은' 값 자체로 비교되기 때문에, 'React.memo만 사용해도 렌더링 방지가 가능'하지만,
+- '참조 타입 (객체, 함수 등)은 메모리 주소를 기준으로 비교되므로'
+   매 렌더링마다 새로운 주소가 생성되면 React.memo가 다른 props라고 판단하여 리렌더링을 발생한다.
+- 이를 방지하기 위해 'useMemo' 와 'useCallback'을 함께 사용해야 한다.
 
-/**
- * React.memo
- * 오직 Props 변화에만 의존하는 최적화 방법
- *
- * @description
- * React.memo 주의사항
- * 1) 컴포넌트가 같은 Props로 자주 렌더링 될때
- * 2) 컴포넌트가 렌더링이 될때마다 복잡한 로직을 처리해야 할때
- * @returns
- */
+React.memo + useMemo
+→ 자식에게 전달하는 '함수'가 자주 생성되는 경우 사용한다.
+
+React.memo + useCallback
+→ 자식에게 전달하는 '객체/배열'이 자주 생성되는 경우 사용한다.
+`,
+
+reactMemo_1:
+`import { useCallback, useMemo, useState } from "react";
+import ReactMemoChild from "./ReactMemoChild";
+
 const ReactMemo = () => {
     return (
-        <div>
-            <CodeViewerContainer
-                title={"React.memo"}
-                files={{
-                    "설명": codeViewer.description,
-                    "React.memo": codeViewer.reactMemo_1,
-                    "React.memo + useMemo": codeViewer.reactMemo_2,
-                    "React.memo + useCallback": codeViewer.reactMemo_3,
-                }}
-            />
-
-            {/* React.memo */}
-            <ReactMemoParent />
-
-            {/* React.memo + useMemo */}
-            <ReactMemoAndUseMemoParent />
-
-            {/* React.memo + useCallback */}
-            <ReactMemoAndUseCallbackParent />
-        </div>
+        <ReactMemoParent />
     )
 }
 
@@ -68,6 +52,35 @@ export const ReactMemoParent = () => {
                 <ReactMemoChild name={"홍길동"} age={childAge} />
             </div>
         </div>
+    )
+}
+
+export default ReactMemo;
+
+// 하위 컴포넌트
+import React from "react";
+
+const ReactMemoChild = ({name, age}) => {
+    console.log("🙋‍♂️[React.memo] 자식 컴포넌트도 렌더링 되었네요");
+    return (
+        <div style={{border: '2px solid powderblue', padding: '10px'}}>
+            <h3>🙋‍♂️자녀</h3>
+            <p>이름: {name}</p>
+            <p>나이: {age}</p>
+        </div>
+    )
+}
+
+export default React.memo(ReactMemoChild);
+`,
+
+reactMemo_2:
+`import { useCallback, useMemo, useState } from "react";
+import ReactMemoAndUseMemoChild from "./ReactMemoAndUseMemoChild";
+
+const ReactMemo = () => {
+    return (
+        <ReactMemoAndUseMemoParent />
     )
 }
 
@@ -105,6 +118,35 @@ export const ReactMemoAndUseMemoParent = () => {
     )
 }
 
+export default ReactMemo;
+
+// 하위 컴포넌트
+import React from "react";
+
+const ReactMemoAndUseMemoChild = ({name}) => {
+    console.log("🙋‍♂️[React.memo + useMemo] 자식 컴포넌트도 렌더링 되었네요");
+    return (
+        <div style={{border: '2px solid powderblue', padding: '10px'}}>
+            <h3>🙋‍♂️자녀</h3>
+            <p>성: {name.lastName}</p>
+            <p>이름: {name.firstName}</p>
+        </div>
+    )
+}
+
+export default React.memo(ReactMemoAndUseMemoChild);
+`,
+
+reactMemo_3:
+`import { useCallback, useMemo, useState } from "react";
+import ReactMemoAndUseCallbackChild from "./ReactMemoAndUseCallbackChild";
+
+const ReactMemo = () => {
+    return (
+        <ReactMemoAndUseCallbackParent />
+    )
+}
+
 /**
  * React.memo + useCallback 예제소스
  * @returns
@@ -136,3 +178,23 @@ export const ReactMemoAndUseCallbackParent = () => {
 }
 
 export default ReactMemo;
+
+// 하위 컴포넌트
+import React from "react";
+
+const ReactMemoAndUseCallbackChild = ({name, tellMe}) => {
+    console.log("🙋‍♂️[React.memo + useCallback] 자식 컴포넌트도 렌더링 되었네요");
+    return (
+        <div style={{border: '2px solid powderblue', padding: '10px'}}>
+            <h3>🙋‍♂️자녀</h3>
+            <p>이름: {name}</p>
+            <button onClick={tellMe}>버튼</button>
+        </div>
+    )
+}
+
+export default React.memo(ReactMemoAndUseCallbackChild);
+`,
+}
+
+export default codeViewer;

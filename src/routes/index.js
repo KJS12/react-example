@@ -1,7 +1,7 @@
 
 
 import { Home } from "../layout"
-import { Parent, PropsDrilling } from "../pages/props";
+import { Parent, PropsChildren, PropsDrilling } from "../pages/props";
 import {
     UseState,
     UseEffect,
@@ -49,7 +49,8 @@ export const targetPage = [
         label: 'Props',
         children: [
             {path: 'parent', label: 'Basic', to: <Parent />},
-            {path: 'propsDrilling', label: 'PropsDrilling', to: <PropsDrilling />},
+            {path: 'propsDrilling', label: 'Drilling', to: <PropsDrilling />},
+            {path: 'propsChildren', label: 'Children', to: <PropsChildren />},
         ]
     },
     {

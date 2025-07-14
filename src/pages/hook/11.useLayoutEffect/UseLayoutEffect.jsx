@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
 
-// useLayoutEffect(콜백함수, 의존성배열)
+// useLayoutEffect(실행할 함수, 의존성배열)
 const UseLayoutEffect = () => {
     const [numbers, setNumbers] = useState([]);
     const ref = useRef(null);
@@ -25,6 +27,17 @@ const UseLayoutEffect = () => {
 
     return (
         <div>
+            <CodeViewerContainer
+                title={"useLayoutEffect"}
+                files={{
+                    "설명": codeViewer.description,
+                    "useLayoutEffect": codeViewer.useLayoutEffect,
+                    "Mount": codeViewer.useLayoutEffect_mount,
+                    "Update": codeViewer.useLayoutEffect_update,
+                    "UnMount": codeViewer.useLayoutEffect_unmount,
+                    "example": codeViewer.example,
+                }}
+            />
             <div className="container-line">
                 <h3>예제소스</h3>
                 <button onClick={() => setNumbers([])}>Reset</button>

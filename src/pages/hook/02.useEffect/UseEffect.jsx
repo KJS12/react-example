@@ -8,6 +8,7 @@ const UseEffect = () => {
     return (
         <>
             <CodeViewerContainer
+                title={"useEffect"}
                 files={{
                     "설명": codeViewer.description,
                     "useEffect": codeViewer.useEffect,

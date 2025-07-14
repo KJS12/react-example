@@ -1,13 +1,11 @@
 const codeViewer = {
 description:
 `React 내장 Hook (useContext)
-/**
- * React에서 전역처럼 상태(State)나 함수(Function)를 공유할 수 있게 해주는 Hook으로,
- * 하위 컴포넌트들이 부모에서 props로 하나하나 내려받지 않고 Context로 묶인 값을 직접 사용할 수 있게 해준다.
- *
- * ※ 전역 상태(Context) 공유
- * ※ 다양한 레벨에 있는 많은 컴포넌트에 전역적인 데이터를 전달하기 위함.
- */
+- React에서 전역처럼 상태(State)나 함수(Function)를 공유할 수 있게 해주는 Hook으로,
+
+하위 컴포넌트들이 부모에서 props로 하나하나 내려받지 않고 Context로 묶인 값을 직접 사용할 수 있게 해준다.
+※ 전역 상태(Context) 공유
+※ 다양한 레벨에 있는 많은 컴포넌트에 전역적인 데이터를 전달하기 위함.
 `,
 
 themeContext:

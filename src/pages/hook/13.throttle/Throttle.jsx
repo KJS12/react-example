@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useThrottle } from "./useThrottle";
+import { CodeViewerContainer } from "../../../components";
+import codeViewer from "./codeViewer";
+
 
 /**
  * @description
@@ -16,15 +19,25 @@ const Throttle = () => {
     }, 1000);
 
     return (
-        <div className="container">
-            <div className="title">로또번호 맞춰줄게</div>
-            <button className="button" onClick={handleClick}>번호 맞추기</button>
-            <div className="numbers">
-                {lottoNumbers.map((number, idx) => (
-                    <span key={idx} className="number">
-                        {number}
-                    </span>
-                ))}
+        <div>
+            <CodeViewerContainer
+                title={"Throttle"}
+                files={{
+                    "설명": codeViewer.description,
+                    "useThrottle": codeViewer.useThrottle,
+                    "example": codeViewer.example,
+                }}
+            />
+            <div className="container">
+                <div className="title">로또번호 맞춰줄게</div>
+                <button className="button" onClick={handleClick}>번호 맞추기</button>
+                <div className="numbers">
+                    {lottoNumbers.map((number, idx) => (
+                        <span key={idx} className="number">
+                            {number}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     )

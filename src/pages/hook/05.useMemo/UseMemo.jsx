@@ -47,6 +47,7 @@ const UseMemo = () => {
     return (
         <div>
             <CodeViewerContainer
+                title={"useMemo"}
                 files={{
                     "설명": codeViewer.description,
                     "useMemo": codeViewer.useMemo,

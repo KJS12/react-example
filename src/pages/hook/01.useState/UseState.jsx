@@ -27,6 +27,7 @@ const UseState = () => {
     return (
         <div>
             <CodeViewerContainer
+                title={"useState"}
                 files={{
                     "설명": codeViewer.description,
                     "useState": codeViewer.useState,

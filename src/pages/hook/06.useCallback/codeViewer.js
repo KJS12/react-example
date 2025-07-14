@@ -4,11 +4,9 @@ description:
 - '함수'을 메모이제이션하여, 매번 새로 만들지 않도록 하며
 - 주로 자식 컴포넌트에 함수를 props로 넘길 때 '불필요한 렌더링을 방지'하기 위해 사용한다.
 
-/**
- * const 변수명 = useCallback(arg1, arg2);
- * - arg1 → 호출될 콜백 함수 (반환값은 선택적)
- * - arg2 → 의존성 배열
- */
+const 변수명 = useCallback(arg1, arg2);
+- arg1 → 호출될 콜백 함수 (반환값은 선택적)
+- arg2 → 의존성 배열
 `,
 
 useCallback:

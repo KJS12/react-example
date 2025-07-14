@@ -17,15 +17,16 @@ const UseContext = () => {
     return (
         <>
             <CodeViewerContainer
+                title={"useContext"}
                 files={{
                     "설명": codeViewer.description,
                     "themeContext": codeViewer.themeContext,
                     "userContext": codeViewer.userContext,
                     "useContext": codeViewer.useContext,
-                    "page": codeViewer.page,
-                    "header": codeViewer.header,
-                    "content": codeViewer.content,
-                    "footer": codeViewer.footer,
+                    "Page": codeViewer.page,
+                    "Header": codeViewer.header,
+                    "Content": codeViewer.content,
+                    "Footer": codeViewer.footer,
                 }}
             />
             <UserContext.Provider value={"사용자"}>

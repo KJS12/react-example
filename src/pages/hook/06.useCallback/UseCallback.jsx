@@ -34,6 +34,7 @@ const UseCallback = () => {
     return (
         <div>
             <CodeViewerContainer
+                title={"useCallback"}
                 files={{
                     "설명": codeViewer.description,
                     "useCallback": codeViewer.useCallback,

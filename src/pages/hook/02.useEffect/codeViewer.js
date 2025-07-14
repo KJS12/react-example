@@ -1,13 +1,16 @@
 const codeViewer = {
 description:
 `React 내장 Hook (useEffect)
-/**
- * 컴포넌트가 렌더링 된 후 '비동기적'으로 실행한다.
- *
- * useEffect(arg1, arg2);
- * - arg1 → 실행할 함수 (필수)
- * - arg2 → 의존성 배열 (선택, 생략 가능)
- */
+- 컴포넌트가 렌더링 된 후 '화면에 그려진 이후에 비동기적'으로 실행한다.
+
+useEffect(arg1, arg2);
+- arg1 → 실행할 함수 (필수)
+- arg2 → 의존성 배열 (선택, 생략 가능)
+
+※※ 실행순서 ※※
+1) 컴포넌트 렌더링
+2) 화면 업데이트
+3) useEffect 실행
 `,
 useEffect:
 `// 매 렌더링마다 실행한다.
