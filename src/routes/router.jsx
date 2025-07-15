@@ -6,12 +6,12 @@ const makeRoutes = (pages) => {
     return pages.map((page) => {
         const route = {
             path: page.path.replace(/^\//, ""), // 루트 슬래시 제거, 상대경로 맞춤
-            element: page.to ? page.to : <Outlet />,
+            element: page.element ? page.element : <Outlet />,
         };
 
         if (page.children) {
             route.children = makeRoutes(page.children);
-            if (!page.to) {
+            if (!page.element) {
                 route.element = <Outlet />;
             }
         }

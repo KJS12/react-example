@@ -25,7 +25,7 @@ import { Blog, TodoList, } from "../pages/example";
  * {
  *     path: '/example',
  *     label: 'example',
- *     to: <Exam1 />
+ *     element: <Exam1 />
  * },
  *
  * 하위메뉴 O
@@ -33,8 +33,8 @@ import { Blog, TodoList, } from "../pages/example";
  *     path: '/example',
  *     label: 'example',
  *     children: [
- *         {path: 'exam1', label: 'exam1', to: <Exam1 />},
- *         {path: 'exam2', label: 'exam2', to: <Exam2 />},
+ *         {path: 'exam1', label: 'exam1', element: <Exam1 />},
+ *         {path: 'exam2', label: 'exam2', element: <Exam2 />},
  *     ],
  * },
 */
@@ -42,42 +42,42 @@ export const targetPage = [
     {
         path: '/',
         label: 'Home',
-        to: <Home />
+        element: <Home />
     },
     {
         path: '/props',
         label: 'Props',
         children: [
-            {path: 'parent', label: 'Basic', to: <Parent />},
-            {path: 'propsDrilling', label: 'Drilling', to: <PropsDrilling />},
-            {path: 'propsChildren', label: 'Children', to: <PropsChildren />},
+            {path: 'parent', label: 'Basic', element: <Parent />},
+            {path: 'propsDrilling', label: 'Drilling', element: <PropsDrilling />},
+            {path: 'propsChildren', label: 'Children', element: <PropsChildren />},
         ]
     },
     {
         path: '/hook',
         label: 'Hook',
         children: [
-            {path: 'useState', label: 'useState', to: <UseState />},
-            {path: 'useEffect', label: 'useEffect',to: <UseEffect />},
-            {path: 'useRef', label: 'useRef', to: <UseRef />},
-            {path: 'useContext', label: 'useContext', to: <UseContext />},
-            {path: 'useMemo', label: 'useMemo', to: <UseMemo />},
-            {path: 'useCallback', label: 'useCallback', to: <UseCallback />},
-            {path: 'useReducer', label: 'useReducer', to: <UseReducer />},
-            {path: 'reactMemo', label: 'React.memo', to: <ReactMemo />},
-            {path: 'customHook', label: 'CustomHook', to: <CustomHook />},
-            {path: 'useId', label: 'UseId', to: <UseId />},
-            {path: 'useLayoutEffect', label: 'UseLayoutEffect', to: <UseLayoutEffect />},
-            {path: 'debounce', label: 'Debounce', to: <Debounce />},
-            {path: 'throttle', label: 'Throttle', to: <Throttle />},
+            {path: 'useState', label: 'useState', element: <UseState />},
+            {path: 'useEffect', label: 'useEffect',element: <UseEffect />},
+            {path: 'useRef', label: 'useRef', element: <UseRef />},
+            {path: 'useContext', label: 'useContext', element: <UseContext />},
+            {path: 'useMemo', label: 'useMemo', element: <UseMemo />},
+            {path: 'useCallback', label: 'useCallback', element: <UseCallback />},
+            {path: 'useReducer', label: 'useReducer', element: <UseReducer />},
+            {path: 'reactMemo', label: 'React.memo', element: <ReactMemo />},
+            {path: 'customHook', label: 'CustomHook', element: <CustomHook />},
+            {path: 'useId', label: 'UseId', element: <UseId />},
+            {path: 'useLayoutEffect', label: 'UseLayoutEffect', element: <UseLayoutEffect />},
+            {path: 'debounce', label: 'Debounce', element: <Debounce />},
+            {path: 'throttle', label: 'Throttle', element: <Throttle />},
         ],
     },
     {
         path: '/example',
         label: 'example',
         children: [
-            {path: 'blog', label: 'Blog', to: <Blog />},
-            {path: 'todoList', label: 'TodoList', to: <TodoList />},
+            {path: 'blog', label: 'Blog', element: <Blog />},
+            {path: 'todoList', label: 'TodoList', element: <TodoList />},
         ],
     },
 ]
