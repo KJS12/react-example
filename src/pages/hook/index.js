@@ -11,6 +11,7 @@ import UseId from "./10.useId/UseId";
 import UseLayoutEffect from "./11.useLayoutEffect/UseLayoutEffect";
 import Debounce from "./12.debounce/Debounce";
 import Throttle from "./13.throttle/Throttle";
+import UseImperativeHandle from "./14. useImperativeHandle/UseImperativeHandle";
 
 export {
     UseState,
@@ -26,4 +27,5 @@ export {
     UseLayoutEffect,
     Debounce,
     Throttle,
+    UseImperativeHandle,
 }

@@ -16,6 +16,7 @@ import {
     UseLayoutEffect,
     Debounce,
     Throttle,
+    UseImperativeHandle,
 } from "../pages/hook";
 import { Blog, TodoList, } from "../pages/example";
 
@@ -70,6 +71,7 @@ export const targetPage = [
             {path: 'useLayoutEffect', label: 'UseLayoutEffect', element: <UseLayoutEffect />},
             {path: 'debounce', label: 'Debounce', element: <Debounce />},
             {path: 'throttle', label: 'Throttle', element: <Throttle />},
+            {path: 'useImperativeHandle', label: 'UseImperativeHandle', element: <UseImperativeHandle />},
         ],
     },
     {
