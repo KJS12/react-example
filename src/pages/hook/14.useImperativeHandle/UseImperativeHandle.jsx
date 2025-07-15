@@ -18,9 +18,11 @@ const UseImperativeHandle = () => {
                 }}
             />
 
-            <button onClick={() => modalRef.current.open()}>모달 열기</button>
-            <button onClick={() => modalRef.current.close()} >모달 닫기</button>
-            <button onClick={() => modalRef.current.toggle()}>모달 토글</button>
+            <div className="d-flex gap">
+                <button onClick={() => modalRef.current.open()}>모달 열기</button>
+                <button onClick={() => modalRef.current.close()} >모달 닫기</button>
+                <button onClick={() => modalRef.current.toggle()}>모달 토글</button>
+            </div>
 
             <Modal ref={modalRef}>
                 <p>모달 내부입니다.</p>
