@@ -3,14 +3,11 @@ const PropsChildrenArray1 = ({ header, content, footer }) => {
     return (
         <div>
             <h3>children - 다건 예제 1</h3>
-            <strong>Header</strong>
-            { header }
-
-            <strong>Content</strong>
-            { content }
-
-            <strong>footer</strong>
-            { footer }
+            <div className='d-flex' style={{gap: '20px'}}>
+                { header }
+                { content }
+                { footer }
+            </div>
         </div>
     )
 }

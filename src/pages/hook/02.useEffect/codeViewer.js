@@ -28,7 +28,7 @@ useEffect(() => {
 `,
 
 useEffect_update:
-`// 첫 렌더링시 실행 + 두번째 인자 값이 변경될 때만 실행한다.
+`// 첫 렌더링시 실행 + 두번째 인자 값이 변경될 때마다 실행한다.
 import { useState, useEffect } from "react";
 const [count, setCount] = useState(0);
 
@@ -43,6 +43,9 @@ import { useEffect } from "react";
 useEffect(() => {
     console.log("컴포넌트가 마운트됨!");
 
+    // 컴포넌트가 언마운트 되거나, useEffect가 재실행되기 전에 실행되는 정리 함수로,
+    // 불필요한 메모리 사용을 방지하고, 리소스 누수를 막기 위해 사용된다.
+    // 예: 이벤트 리너스 제거, 타이머(clearInterval/clearTimeout) 해제, 웹소켓 연결 종료 등
     return () => {
         console.log("컴포넌트가 언마운트됨!");
     };

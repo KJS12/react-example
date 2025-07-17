@@ -1,0 +1,27 @@
+import React from 'react';
+
+// 4. type으로 넘기기
+const PropsChildrenArray3 = ({ children }) => {
+    const childrenArray = React.Children.toArray(children); // React.Children.toArray를 사용하여 children을 배열로 변환
+
+    const getType = (componentType) => {
+        return childrenArray.find(child => child.type === componentType);
+    }
+
+    return (
+        <div>
+            <h3>children - 다건 예제 3</h3>
+            <div className='d-flex' style={{gap: '20px'}}>
+                { getType(PropsChildrenArray3.Header) }
+                { getType(PropsChildrenArray3.Content) }
+                { getType(PropsChildrenArray3.Footer) }
+            </div>
+        </div>
+    )
+}
+
+PropsChildrenArray3.Header = ({children}) => <div className='header'>{children}</div>
+PropsChildrenArray3.Content = ({children}) => <div className='content'>{children}</div>
+PropsChildrenArray3.Footer = ({children}) => <div className='footer'>{children}</div>
+
+export default PropsChildrenArray3;

@@ -5,6 +5,7 @@ import PropsChildrenArray1 from './PropsChildrenArray1';
 import PropsChildrenArray2 from './PropsChildrenArray2';
 import PropsChildrenBasic from './PropsChildrenBasic';
 import PropsChildrenSingle from './PropsChildrenSingle';
+import PropsChildrenArray3 from './PropsChildrenArray3';
 const PropsChildren = () => {
 
     return (
@@ -17,6 +18,7 @@ const PropsChildren = () => {
                     "children Single": codeViewer.childrenSingle,
                     "children Array1": codeViewer.childrenArray1,
                     "children Array2": codeViewer.childrenArray2,
+                    "children Array3": codeViewer.childrenArray3,
                 }}
             />
 
@@ -53,6 +55,19 @@ const PropsChildren = () => {
                     <div slot="content"><p>컨텐츠 영역</p></div>
                     <div slot="footer"><p>푸터 영역</p></div>
                 </PropsChildrenArray2>
+            </div>
+            <div className='hr'>
+                <PropsChildrenArray3>
+                    <PropsChildrenArray3.Header>
+                        <p>헤더 영역</p>
+                    </PropsChildrenArray3.Header>
+                    <PropsChildrenArray3.Content>
+                        <p>컨텐츠 영역</p>
+                    </PropsChildrenArray3.Content>
+                    <PropsChildrenArray3.Footer>
+                        <p>푸터 영역</p>
+                    </PropsChildrenArray3.Footer>
+                </PropsChildrenArray3>
             </div>
         </>
     )
