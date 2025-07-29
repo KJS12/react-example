@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
 
 const UseEffect = () => {
     const [showTimer, setShowTimer] = useState(false);
+
+    // 타이머 토글
+    const handleToggle = () => setShowTimer(!showTimer);
 
     return (
         <>
@@ -19,13 +23,13 @@ const UseEffect = () => {
             />
             <div className="container">
                 {showTimer && <Timer />}
-                <button onClick={() => setShowTimer(!showTimer)}>ToggleTimer</button>
+                <ButtonBox label="ToggleTimer" onClick={handleToggle}/>
             </div>
         </>
     )
 }
 
-const Timer = (props) => {
+const Timer = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             console.log("타이머 도는중...");

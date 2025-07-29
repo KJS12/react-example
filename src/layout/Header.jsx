@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <div>
             <h4>
-                <Link to="/" className="t-line-over t-white">
+                <Link to="/" className="text-white underline: overline">
                     React Example
                 </Link>
             </h4>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Highlight } from '../../../shared/component';
 
 // 4. slot 패턴으로 넘기기
 const PropsChildrenArray2 = ({ children }) => {
@@ -10,7 +11,7 @@ const PropsChildrenArray2 = ({ children }) => {
 
     return (
         <div>
-            <h3>children - 다건 예제 2</h3>
+            <Highlight title="children - 다건 예제 2" />
             <div className='d-flex' style={{gap: '20px'}}>
                 { getSlot('header') }
                 { getSlot('content') }

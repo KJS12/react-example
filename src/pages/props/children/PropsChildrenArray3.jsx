@@ -1,4 +1,5 @@
 import React from 'react';
+import { Highlight } from '../../../shared/component';
 
 // 4. type으로 넘기기
 const PropsChildrenArray3 = ({ children }) => {
@@ -10,7 +11,7 @@ const PropsChildrenArray3 = ({ children }) => {
 
     return (
         <div>
-            <h3>children - 다건 예제 3</h3>
+            <Highlight title="children - 다건 예제 3" />
             <div className='d-flex' style={{gap: '20px'}}>
                 { getType(PropsChildrenArray3.Header) }
                 { getType(PropsChildrenArray3.Content) }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useThrottle } from "./useThrottle";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
+import { Highlight } from "../../../shared/component";
 
 
 /**
@@ -29,8 +31,8 @@ const Throttle = () => {
                 }}
             />
             <div className="container">
-                <div className="title">로또번호 맞춰줄게</div>
-                <button className="button" onClick={handleClick}>번호 맞추기</button>
+                <Highlight title="로또번호 맞춰줄게" />
+                <ButtonBox label="번호 맞추기" onClick={handleClick} />
                 <div className="numbers">
                     {lottoNumbers.map((number, idx) => (
                         <span key={idx} className="number">

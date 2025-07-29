@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "../../../hooks";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
 
 const heavyWork = () => {
     console.log('엄청 무거운 작업');
@@ -38,7 +39,7 @@ const UseState = () => {
                 value={formData.name}
                 onChange={handleInputChange}
             />
-            <button onClick={handleUpdate}>Update</button>
+            <ButtonBox label="Update" onClick={handleUpdate} />
             <ul>
                 {names.map((name, index) => (
                     <li key={index}>{name}</li>

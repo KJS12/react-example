@@ -4,6 +4,7 @@ import ReactMemoAndUseMemoChild from "./ReactMemoAndUseMemoChild";
 import ReactMemoAndUseCallbackChild from "./ReactMemoAndUseCallbackChild";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
 
 /**
  * React.memo
@@ -63,8 +64,8 @@ export const ReactMemoParent = () => {
                 <h3>React.memo</h3>
                 <h1>👩‍👧‍👦부모</h1>
                 <p>age: {parentAge}</p>
-                <button onClick={incrementParentAge}>부모 나이 증가</button>
-                <button onClick={incrementChildAge}>자녀 나이 증가</button>
+                <ButtonBox label="부모 나이 증가" onClick={incrementParentAge} />
+                <ButtonBox label="자녀 나이 증가" onClick={incrementChildAge} />
                 <ReactMemoChild name={"홍길동"} age={childAge} />
             </div>
         </div>
@@ -98,7 +99,7 @@ export const ReactMemoAndUseMemoParent = () => {
                 <h3>React.memo + useMemo</h3>
                 <h1>👩‍👧‍👦부모</h1>
                 <p>age: {parentAge}</p>
-                <button onClick={incrementParentAge}>부모 나이 증가</button>
+                <ButtonBox label="부모 나이 증가" onClick={incrementParentAge} />
                 <ReactMemoAndUseMemoChild name={name}/>
             </div>
         </div>
@@ -128,7 +129,7 @@ export const ReactMemoAndUseCallbackParent = () => {
                 <h3>React.memo + useMemo</h3>
                 <h1>👩‍👧‍👦부모</h1>
                 <p>age: {parentAge}</p>
-                <button onClick={incrementParentAge}>부모 나이 증가</button>
+                <ButtonBox label="부모 나이 증가" onClick={incrementParentAge} />
                 <ReactMemoAndUseCallbackChild name={"홍길동"} tellMe={tellMe} />
             </div>
         </div>

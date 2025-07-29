@@ -1,4 +1,5 @@
 import React from "react";
+import { Highlight } from "../../../shared/component";
 
 // 2. children만 넘기기 (하위 요소 1개만 받기)
 const PropsChildrenSingle = ({ children }) => {
@@ -6,7 +7,7 @@ const PropsChildrenSingle = ({ children }) => {
 
     return (
         <div>
-            <h3>children - 단건 예제</h3>
+            <Highlight title="children - 단건 예제" />
             { child }
         </div>
     )

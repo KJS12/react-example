@@ -1,8 +1,10 @@
+import { Highlight } from "../../../shared/component";
+
 // 3. props로 여러 개 넘기기
 const PropsChildrenArray1 = ({ header, content, footer }) => {
     return (
         <div>
-            <h3>children - 다건 예제 1</h3>
+            <Highlight title="children - 다건 예제 1" />
             <div className='d-flex' style={{gap: '20px'}}>
                 { header }
                 { content }

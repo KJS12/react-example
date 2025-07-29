@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Modal from "./Modal";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
 
 const UseImperativeHandle = () => {
     const modalRef = useRef();
@@ -18,10 +19,10 @@ const UseImperativeHandle = () => {
                 }}
             />
 
-            <div className="d-flex gap">
-                <button onClick={() => modalRef.current.open()}>모달 열기</button>
-                <button onClick={() => modalRef.current.close()} >모달 닫기</button>
-                <button onClick={() => modalRef.current.toggle()}>모달 토글</button>
+            <div className="flex gap-2">
+                <ButtonBox label="모달 열기" onClick={() => modalRef.current.open()} />
+                <ButtonBox label="모달 닫기" onClick={() => modalRef.current.close()} />
+                <ButtonBox label="모달 토글" onClick={() => modalRef.current.toggle()} className="btn btn-secondary" />
             </div>
 
             <Modal ref={modalRef}>

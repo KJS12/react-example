@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 테일윈드 컴포넌트 스타일 적용시 */
+@layer components {
+    .layout {
+        @apply min-h-screen flex flex-col p-2;
+    }
+
+    /* 레이아웃 header */
+    .layout-header {
+        @apply bg-black text-white p-4;
+    }
+
+    /* 레이아웃 menu */
+    .layout-menu {
+        @apply bg-red-600 p-2;
+    }
+
+    /* 레이아웃 content */
+    .layout-content {
+        @apply flex-grow p-6 bg-white;
+    }
+
+    /* 레이아웃 footer */
+    .layout-footer {
+        @apply bg-gray-900 text-white p-4;
+    }
+
+    /* 기본 버튼 스타일 */
+    .btn {
+        @apply px-4 py-2 rounded-xl font-medium transition duration-200;
+    }
+
+    /* 주요 버튼 */
+    .btn-primary {
+        @apply bg-blue-600 text-white hover:bg-blue-700;
+    }
+
+    /* 보조 버튼 */
+    .btn-secondary {
+        @apply bg-green-600 text-white hover:bg-green-700;
+    }
+
+    /* 위험/삭제 버튼 */
+    .btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700;
+    }
+
+    /* 테두리만 버튼 */
+    .btn-outline {
+        @apply border border-gray-400 text-gray-700 bg-white hover:bg-gray-100;
+    }
+
+    /* 비활성화 상태 버튼 */
+    .btn-disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+}

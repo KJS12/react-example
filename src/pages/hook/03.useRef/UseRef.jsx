@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
+import { GridLayout } from "../../../shared/component";
 
 const UseRef = () => {
     const [count, setCount] = useState(1);
@@ -44,6 +46,10 @@ const UseRef = () => {
         console.log(`ref: ${countRef.current}, var: ${countVar}`)
     }
 
+    const handleCountPlus = () => {
+        setCount(count + 1);
+    }
+
     return (
         <>
             <CodeViewerContainer
@@ -57,20 +63,20 @@ const UseRef = () => {
             <div className="container-line">
                 <p>Ref: {countRef.current}</p>
                 <p>Var: {countVar}</p>
-                <div className="d-flex gap">
-                    <button onClick={printResults}>출력</button>
-                    <button onClick={doRenderer}>렌더링</button>
-                    <button onClick={increaseRef}>Ref 올려</button>
-                    <button onClick={increaseVar}>Var 올려</button>
-                </div>
+                <GridLayout cols={2} smCols={4} gap={2}>
+                    <ButtonBox label="출력" onClick={printResults}/>
+                    <ButtonBox label="렌더링" onClick={doRenderer}/>
+                    <ButtonBox label="Ref 올려" onClick={increaseRef}/>
+                    <ButtonBox label="Var 올려" onClick={increaseVar}/>
+                </GridLayout>
             </div>
             <div className="container-line">
                 <p>Count: {count}</p>
-                <button onClick={() => setCount(count + 1)}>Count 올려</button>
+                <ButtonBox label="Count 올려" onClick={handleCountPlus} />
             </div>
-            <div className="d-flex gap container-line">
+            <div className="flex flex-row grp-2 container-line">
                 <input ref={inputRef} type="text" placeholder="username" />
-                <button onClick={login}>로그인</button>
+                <ButtonBox label="로그인" className="btn-secondary" onClick={login} />
             </div>
         </>
     )

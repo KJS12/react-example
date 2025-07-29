@@ -2,10 +2,10 @@ import { useEffect, useReducer, useRef } from "react";
 import { Form } from "react-router-dom";
 import { JUtilsValid } from "../../../utils/utils";
 import { useInput } from "../../../hooks";
-import { InputBox, RadioBox } from "../../../shared/inputs";
+import { ButtonBox, InputBox, RadioBox } from "../../../shared/inputs";
 import { inputValue, REPAYMENT_TYPE, repaymentList } from "./data";
 import { reducer } from "./reducer";
-import { theme } from "../../../utils/theme";
+import { Highlight } from "../../../shared/component";
 
 /**
  * 할일 관리
@@ -63,8 +63,8 @@ const TodoList = () => {
 
     return (
         <div>
-            <h3>할일 등록</h3>
-            <Form onSubmit={handleSubmit} style={{marginBottom: '10px'}}>
+            <Highlight title="할일 등록"/>
+            <Form onSubmit={handleSubmit} className="my-5">
                 <InputBox
                     label="제목"
                     ref={(el) => (inputRefs.current['title'] = el)}
@@ -127,9 +127,7 @@ const TodoList = () => {
                         </div>
                     )
                 }
-                <button type="submit">
-                    등록
-                </button>
+                <ButtonBox type="submit" label="등록" />
             </Form>
             <div>
                 <table style={{borderBlock: '1px solid gray', width: '500px', textAlign: 'center'}}>
@@ -154,8 +152,8 @@ const TodoList = () => {
                                 <td>{item.agree3}</td>
                                 <td>{item.chk1}</td>
                                 <td>
-                                    <button style={{backgroundColor: theme.color.primary}} onClick={() => processUpd(item)}>수정</button>
-                                    <button style={{backgroundColor: theme.color.danger}} onClick={() => processDel(item)}>삭제</button>
+                                    <ButtonBox label="수정" className="btn-secondary" onClick={() => processUpd(item)} />
+                                    <ButtonBox label="삭제" className="btn-danger" onClick={() => processDel(item)} />
                                 </td>
                             </tr>
                         ))}

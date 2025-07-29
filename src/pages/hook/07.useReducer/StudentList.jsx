@@ -1,20 +1,24 @@
+import { ButtonBox } from "../../../shared/inputs";
+
 const StudentList = ({name, dispatch, id, isHere}) => {
+    const handleAction = (type) => {
+        dispatch({
+            type: type,
+            payload: { id },
+        });
+    }
+
     return (
-        <div>
+        <div className="flex flex-row items-center gap-7 my-2">
             <span
-                style={{
-                    textDecoration: isHere ? 't-line-through' : 'none',
-                    color: isHere ? 'gray' : 'black'
-                }}
-                onClick={() => {
-                    dispatch({ type: 'mark-student', payload: { id } })
-                }}
+                className={`font-bold  truncate block w-40 ${isHere ? 'line-through text-gray-400' : 'no-underline text-black'}`}
+                onClick={() => handleAction('mark-student')}
             >{name}</span>
-            <button onClick={() => {
-                dispatch({ type: 'delete-student', payload: { id } })
-            }}>
-                삭제
-            </button>
+            <ButtonBox
+                label="삭제"
+                className="btn btn-danger"
+                onClick={() => handleAction('delete-student')}
+            />
         </div>
     )
 }

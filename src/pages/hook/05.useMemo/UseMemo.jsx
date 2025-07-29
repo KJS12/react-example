@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
+import { Highlight, Section } from "../../../shared/component";
 
 const hardCalculate = (number) => {
     console.log('어려운 계산!');
@@ -55,7 +57,7 @@ const UseMemo = () => {
                 }}
             />
             <div className="container-line">
-                <h1>어려운 계산기</h1>
+                <Highlight title="어려운 계산기"/>
                 <input
                     type="number"
                     value={hardNumber}
@@ -63,7 +65,7 @@ const UseMemo = () => {
                 />
                 <span>+ 10000 = {hardSum}</span>
 
-                <h1>쉬운 계산기</h1>
+                <Highlight title="쉬운 계산기"/>
                 <input
                     type="number"
                     value={easyNumber}
@@ -72,16 +74,17 @@ const UseMemo = () => {
                 <span>+ 1 = {easySum}</span>
             </div>
             <div className="container-line">
-                <h2>하루에 몇끼 먹어요?</h2>
+                <Highlight title="하루에 몇 끼 먹어요?"/>
                 <input
                     type="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                 />
-                <hr />
-                <h2>어느 나라에 있어요?</h2>
-                <p>나라: {location.country}</p>
-                <button onClick={() => setIsKorea(!isKorea)}>비행기 타자</button>
+                <Section.Dashed>
+                    <Highlight title="어느 나라에 있어요?"/>
+                    <p>나라: {location.country}</p>
+                    <ButtonBox label="비행기 타자" onClick={() => setIsKorea(!isKorea)} />
+                </Section.Dashed>
             </div>
         </div>
     )

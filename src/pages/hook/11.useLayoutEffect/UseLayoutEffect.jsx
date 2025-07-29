@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
 
 // useLayoutEffect(실행할 함수, 의존성배열)
 const UseLayoutEffect = () => {
@@ -40,7 +41,7 @@ const UseLayoutEffect = () => {
             />
             <div className="container-line">
                 <h3>예제소스</h3>
-                <button onClick={() => setNumbers([])}>Reset</button>
+                <ButtonBox label="Reset" onClick={() => setNumbers([])} />
                 <div
                     ref={ref}
                     style={{

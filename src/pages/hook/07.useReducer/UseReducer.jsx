@@ -2,6 +2,8 @@ import { useReducer, useState } from "react";
 import Student from "./Student";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox } from "../../../shared/inputs";
+import { Highlight } from "../../../shared/component";
 
 const ACTION_TYPE = {
     deposit: 'deposit',
@@ -57,16 +59,19 @@ const UseReducer = () => {
             />
 
             <div className="container-line">
-                <h2>useReducer 은행에 오신것을 환영합니다.</h2>
+                <Highlight title="useReducer 은행에 오신것을 환영합니다."/>
                 <p>잔고: {money}원</p>
-                <input
-                    type="number"
-                    value={number}
-                    onChange={(e) => setNumber(parseInt(e.target.value))}
-                    step={1000}
-                />
-                <button onClick={deposit}>예금</button>
-                <button onClick={withdraw}>출금</button>
+
+                <div className="flex flex-row gap-3">
+                    <input
+                        type="number"
+                        value={number}
+                        onChange={(e) => setNumber(parseInt(e.target.value))}
+                        step={1000}
+                    />
+                    <ButtonBox label="예금" className="btn btn-primary" onClick={deposit} />
+                    <ButtonBox label="출금" className="btn btn-secondary" onClick={withdraw} />
+                </div>
             </div>
             <div className="container-line">
                 <Student />

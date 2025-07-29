@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 import Box from "./Box";
 import { CodeViewerContainer } from "../../../components";
 import codeViewer from "./codeViewer";
+import { ButtonBox, InputBox } from "../../../shared/inputs";
 
 const UseCallback = () => {
     const [number, setNumber] = useState(0);
@@ -41,30 +42,28 @@ const UseCallback = () => {
                     "example": codeViewer.example,
                 }}
             />
-            <div className="container-line">
-                <input
-                    type="number"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-                />
-                <br/>
-                <button onClick={() => setToggle(!toggle)}>{toggle.toString()}</button>
-                <br/>
-                <button onClick={someFunction}>Call SomeFunc</button>
-            </div>
-            <div
-                className="container-line"
-                style={{background: isDark ? 'black' : 'white',}}
-            >
-                <input
-                    type="number"
-                    value={size}
-                    step={10}
-                    onChange={(e) => setSizes(e.target.value)}
-                />
-                <br/>
-                <button onClick={() => setIsDark(!isDark)}>Change Theme</button>
-                <Box createBoxStyle={createBoxStyle} />
+            <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                    <input
+                        type="number"
+                        value={number}
+                        onChange={(e) => setNumber(e.target.value)}
+                    />
+                    <ButtonBox label={toggle.toString()} onClick={() => setToggle(!toggle)} />
+                    <ButtonBox label="Call SomeFunc" onClick={someFunction} />
+                </div>
+                <div className={`grid grid-cols-2 gap-3 ${isDark ? 'bg-black' : 'bg-white'}`}>
+                    {/* <div className="flex justify-start col-span-2"> */}
+                        <input
+                            type="number"
+                            value={size}
+                            step={10}
+                            onChange={(e) => setSizes(e.target.value)}
+                        />
+                        <ButtonBox label="Change Theme" onClick={() => setIsDark(!isDark)}/>
+                    {/* </div> */}
+                    <Box createBoxStyle={createBoxStyle} />
+                </div>
             </div>
         </div>
     )

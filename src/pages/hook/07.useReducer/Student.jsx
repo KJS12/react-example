@@ -1,5 +1,7 @@
 import { useReducer, useState } from "react";
 import StudentList from "./StudentList";
+import { ButtonBox } from "../../../shared/inputs";
+import { Highlight } from "../../../shared/component";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -46,7 +48,7 @@ const Student = () => {
 
     return (
         <div>
-            <h2>출석부</h2>
+            <Highlight title="출석부" />
             <p>총 학생 수: {studentInfo.count}</p>
             <input
                 type="text"
@@ -54,7 +56,7 @@ const Student = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
-            <button onClick={handleAdd}>추가</button>
+            <ButtonBox label="추가" onClick={handleAdd} />
             {studentInfo.students.map((student, index) => {
                 return (
                     <StudentList

@@ -1,3 +1,4 @@
+import { ButtonBox } from "../../../shared/inputs";
 import { useThemeContext } from "./context/ThemeContext";
 
 const Footer = () => {
@@ -7,13 +8,8 @@ const Footer = () => {
     };
 
     return (
-        <div
-            className="footer"
-            style={{
-                backgroundColor: isDark ? 'black' : 'lightgray',
-            }}
-        >
-            <button onClick={toggleTheme}>Dark Mode</button>
+        <div className={`footer ${isDark ? "bg-black" : "bg-gray-300"}`} >
+            <ButtonBox label="Dark Mode" onClick={toggleTheme} />
         </div>
     )
 }

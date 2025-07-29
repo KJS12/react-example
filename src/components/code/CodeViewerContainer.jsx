@@ -1,5 +1,7 @@
 import { useState } from "react";
 import CodeViewer from "./CodeViewer";
+import { ButtonBox } from "../../shared/inputs";
+import { Highlight } from "../../shared/component";
 
 const CodeViewerContainer = ({title, files}) => {
     const fileNames = Object.keys(files);
@@ -7,17 +9,16 @@ const CodeViewerContainer = ({title, files}) => {
 
     return (
         <>
-            {title && <h1>{title}</h1>}
+            {title && <Highlight size="4xl" bold title={title}/>}
              {/* 탭 버튼 */}
             <div className="code-tabs">
                 {fileNames.map((filename) => (
-                    <button
+                    <ButtonBox
                         key={filename}
                         className={`tab-btn ${activeTab === filename ? "active" : ""}`}
                         onClick={() => setActiveTab(filename)}
-                    >
-                        {filename}
-                    </button>
+                        label={filename}
+                    />
                 ))}
             </div>
 
