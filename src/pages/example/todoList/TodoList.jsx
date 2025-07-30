@@ -57,8 +57,10 @@ const TodoList = () => {
 
     // 추가하기
     const processAdd = (data) => dispatch({type: 'add', payload: data});
+
     // 수정하기
-    const processUpd = (data) => dispatch({type: 'update', payload: data});
+    // const processUpd = (data) => dispatch({type: 'update', payload: data});
+
     // 삭제하기
     const processDel = (data) => dispatch({type: 'delete', payload: data});
 
@@ -134,7 +136,7 @@ const TodoList = () => {
                                     <td className="table-cell">{item.agree4}</td>
                                     <td className="table-cell">
                                         <div className="inline-flex gap-1">
-                                            <ButtonBox label="수정" className="btn btn-secondary" onClick={() => processUpd(item)} />
+                                            {/* <ButtonBox label="수정" className="btn btn-secondary" onClick={() => processUpd(item)} /> */}
                                             <ButtonBox label="삭제" className="btn btn-danger" onClick={() => processDel(item)} />
                                         </div>
                                     </td>
