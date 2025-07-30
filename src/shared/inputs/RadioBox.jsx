@@ -8,70 +8,41 @@ import PropTypes from 'prop-types';
  * @param {*} ref
  * @returns
  */
-// const RadioBox = ({title, list=[], onChange}, ref) => {
-//     const generatedId = useId();
-
-//     return (
-//         list.length > 0
-//         && list.map((item, idx) => {
-//             const { checked, id, ...restItemProps } = item;
-//             const uniqueId = id ?? `${generatedId}-${idx}`;
-
-//             return (
-//                 <React.Fragment key={idx}>
-//                     <input
-//                         type="radio"
-//                         id={`${uniqueId}`}
-//                         checked={checked}
-//                         onChange={onChange}
-//                         {...(ref ? {ref} : {})}
-//                         {...restItemProps}
-//                         style={{marginLeft: '10px'}}
-//                     />
-//                     {item.label && <label htmlFor={`${uniqueId}`}>{item.label}</label>}
-//                 </React.Fragment>
-//             )
-//         })
-//     )
-// }
-const RadioBox = ({title, list=[], onChange, checkedValue}, ref) => {
+const RadioBox = ({label, id, className, checked, ...props}, ref) => {
     const generatedId = useId();
-
+    const uniqueId = id ?? `${generatedId}-agree`;
     return (
         <>
-            {title && <span className="strong mr-5">{title}</span>}
-            {
-                list.length > 0 && list.map((item, idx) => {
-                    const { checked, id, name, value, ...restItemProps } = item;
-                    const uniqueId = id ?? `${generatedId}-${idx}`;
-
-                    return (
-                        <React.Fragment key={idx}>
-                            <input
-                                type="radio"
-                                id={`${uniqueId}`}
-                                name={name}
-                                value={value}
-                                checked={checked}
-                                onChange={onChange}
-                                {...(ref ? {ref} : {})}
-                                {...restItemProps}
-                                style={{marginLeft: '10px'}}
-                            />
-                            {item.label && <label htmlFor={`${uniqueId}`}>{item.label}</label>}
-                        </React.Fragment>
-                    )
-                })
-            }
+            <div className="inline-flex items-center space-x-2">
+                <label
+                    htmlFor={uniqueId}
+                    className={`px-4 py-2 rounded-full border text-sm cursor-pointer transition-colors
+                        ${checked ? 'btn btn-primary' : 'btn btn-outline'}
+                        ${className ?? ""}
+                        `
+                    }
+                >
+                    <input
+                        type="radio"
+                        id={uniqueId}
+                        checked={checked}
+                        className="sr-only"
+                        ref={ref}
+                        {...props}
+                    />
+                    {label}
+                </label>
+            </div>
         </>
     )
 }
 
 RadioBox.propTypes = {
-    list: PropTypes.array.isRequired,
-    checkedValue: PropTypes.array,
-    onChange: PropTypes.func.isRequired,
-}
+    label: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    checked: PropTypes.bool,
+};
 
 // props와 ref를 함께 사용할 경우 forwardRef를 감싼다.
 export default forwardRef(RadioBox);

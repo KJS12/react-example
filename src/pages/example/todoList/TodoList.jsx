@@ -1,11 +1,13 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useReducer, useRef } from "react";
 import { Form } from "react-router-dom";
+import { reducer } from "./reducer";
 import { JUtilsValid } from "../../../utils/utils";
 import { useInput } from "../../../hooks";
-import { ButtonBox, InputBox, RadioBox } from "../../../shared/inputs";
-import { inputValue, REPAYMENT_TYPE, repaymentList } from "./data";
-import { reducer } from "./reducer";
+import { ButtonBox, InputBox, } from "../../../shared/inputs";
 import { Highlight } from "../../../shared/component";
+import { inputValue } from "./data";
+import CheckItem from "./CheckItem";
+import AgreeItem from "./AgreeItem";
 
 /**
  * 할일 관리
@@ -18,7 +20,6 @@ const TodoList = () => {
 
     const validation = () => {
         for (let key of Object.keys(inputValue)) {
-            // console.log(key)
             const input = inputRefs.current[key];
             if(!input) continue;
 
@@ -29,6 +30,7 @@ const TodoList = () => {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -41,122 +43,104 @@ const TodoList = () => {
         if(!validation()) return;
 
         // 등록하기
-        processAdd(input);
+        const agreeData = inputRefs.current['agree']?.getAgreed?.() ?? {};
+        const checkData = inputRefs.current['check']?.getChecked?.() ?? {};
+        const newData = {
+            ...input,
+            ...checkData, // 예: { check1: "Y", check2: "N", ... }
+            ...agreeData, // 예: { agree1: "Y", agree2: "N", ... }
+        };
+        processAdd(newData);
 
-        // 입력 데이터 초기화
-        resetInput();
-
-        inputRefs.current['title'].value = null;
-        inputRefs.current['content'].value = null;
+        handleReset();
     }
 
     // 추가하기
-    const processAdd = (data) =>  dispatch({type: 'add', payload: data});
+    const processAdd = (data) => dispatch({type: 'add', payload: data});
     // 수정하기
     const processUpd = (data) => dispatch({type: 'update', payload: data});
     // 삭제하기
     const processDel = (data) => dispatch({type: 'delete', payload: data});
 
-    useEffect(() => {
-        console.log(inputRefs)
-    },[inputRefs])
+    const handleReset = () => {
+        // 입력 데이터 초기화
+        resetInput();
+        inputRefs.current['title'].value = null;
+        inputRefs.current['content'].value = null;
+        inputRefs.current['check']?.reset?.(); // 선택 리셋
+        inputRefs.current['agree']?.reset?.(); // 약관 리셋
+    }
 
     return (
         <div>
             <Highlight title="할일 등록"/>
             <Form onSubmit={handleSubmit} className="my-5">
+                {/* 제목 */}
                 <InputBox
                     label="제목"
                     ref={(el) => (inputRefs.current['title'] = el)}
                     name="title"
-                    value={input.title}
+                    value={input.title ?? ""}
                     onChange={handleChange}
                 />
+
+                {/* 내용 */}
                 <InputBox
                     label="내용"
                     ref={(el) => (inputRefs.current['content'] = el)}
                     name="content"
-                    value={input.content}
+                    value={input.content ?? ""}
                     onChange={handleChange}
                 />
-                <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <span className="strong mr-5">약관선택 1</span>
-                    <RadioBox
-                        list={[
-                            {name: 'agree1', value: 'Y', label: '예'},
-                            {name: 'agree1', value: 'N', label: '아니오'},
-                        ]}
-                        onChange={handleChange}
-                        ref={(el) => (inputRefs.current['agree1'] = el)}
-                    />
-                </div>
-                <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <span className="strong mr-5">약관선택 2</span>
-                    <RadioBox
-                        list={[
-                            {name: 'agree2', value: 'Y', label: '예'},
-                            {name: 'agree2', value: 'N', label: '아니오'},
-                        ]}
-                        onChange={handleChange}
-                        ref={(el) => (inputRefs.current['agree2'] = el)}
-                    />
-                </div>
-                <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <span className="strong mr-5">약관선택 3</span>
-                    <RadioBox
-                        list={[
-                            {name: 'agree3', value: 'Y', label: '예'},
-                            {name: 'agree3', value: 'N', label: '아니오'},
-                        ]}
-                        onChange={handleChange}
-                        ref={(el) => (inputRefs.current['agree3'] = el)}
-                    />
-                </div>
-                <div className="select" style={{display: "flex", gap: '5px'}}>
-                    <span className="strong mr-5">항목선택</span>
-                    <RadioBox
-                        list={repaymentList('chk1')}
-                        onChange={handleChange}
-                        ref={(el) => (inputRefs.current['chk1'] = el)}
-                    />
-                </div>
-                {input.chk1 &&
-                    (
-                        <div>
-                            {REPAYMENT_TYPE[input.chk1]}
-                        </div>
-                    )
-                }
+
+                {/* 체크박스 (Checkbox) */}
+                <CheckItem ref={(el) => (inputRefs.current['check'] = el)}/>
+
+                {/* 약관동의 (Agree) */}
+                <AgreeItem ref={(el) => (inputRefs.current['agree'] = el)}/>
+
+                {/* 등록버튼 */}
                 <ButtonBox type="submit" label="등록" />
             </Form>
+
             <div>
-                <table style={{borderBlock: '1px solid gray', width: '500px', textAlign: 'center'}}>
-                    <thead>
+                <table className="table">
+                    <thead className="table-thead">
                         <tr>
-                            <th>제목</th>
-                            <th>내용</th>
-                            <th>약관1</th>
-                            <th>약관2</th>
-                            <th>약관3</th>
-                            <th>체크1</th>
-                            <th>event</th>
+                            {
+                                [
+                                    "제목", "내용",
+                                    "체크1", "체크2", "체크3",
+                                    "약관1", "약관2", "약관3", "약관4",
+                                    "이벤트"].map((item, index) => (
+                                    <th key={index} className="table-thead-th">{item}</th>
+                                ))
+                            }
                         </tr>
                     </thead>
                     <tbody>
-                        {todoList.list.map((item, idx) => (
-                            <tr key={idx}>
-                                <td>{item.title}</td>
-                                <td>{item.content}</td>
-                                <td>{item.agree1}</td>
-                                <td>{item.agree2}</td>
-                                <td>{item.agree3}</td>
-                                <td>{item.chk1}</td>
-                                <td>
-                                    <ButtonBox label="수정" className="btn-secondary" onClick={() => processUpd(item)} />
-                                    <ButtonBox label="삭제" className="btn-danger" onClick={() => processDel(item)} />
-                                </td>
-                            </tr>
-                        ))}
+                        {todoList.list.map((item, index) => {
+                            console.log(JSON.stringify(item, null, 2));
+                            return (
+                                <tr key={index} className="table-row">
+                                    <td className="table-cell">{item.title}</td>
+                                    <td className="table-cell">{item.content}</td>
+                                    <td className="table-cell">{!!item.check1 ? '선택' : '미선택'}</td>
+                                    <td className="table-cell">{!!item.check2 ? '선택' : '미선택'}</td>
+                                    <td className="table-cell">{!!item.check3 ? '선택' : '미선택'}</td>
+                                    <td className="table-cell">{item.agree1}</td>
+                                    <td className="table-cell">{item.agree2}</td>
+                                    <td className="table-cell">{item.agree3}</td>
+                                    <td className="table-cell">{item.agree4}</td>
+                                    <td className="table-cell">
+                                        <div className="inline-flex gap-1">
+                                            <ButtonBox label="수정" className="btn btn-secondary" onClick={() => processUpd(item)} />
+                                            <ButtonBox label="삭제" className="btn btn-danger" onClick={() => processDel(item)} />
+                                        </div>
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>

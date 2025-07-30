@@ -12,15 +12,14 @@ const CheckBox = ({label, id, ...props}, ref) => {
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-chk`;
     return (
-        <div style={{marginBottom: '10px'}}>
-            {label && <label className="strong" htmlFor={uniqueId}>{label}</label>}
+        <div className="mb-2">
             <input
                 type="checkbox"
                 id={uniqueId}
                 {...(ref ? {ref} : {})}
                 {...props}
-                style={{marginLeft: '10px'}}
             />
+            {label && <label className="font-bold ml-2" htmlFor={uniqueId}>{label}</label>}
         </div>
     );
 }
