@@ -76,7 +76,7 @@ const UseRef = () => {
             </div>
             <div className="flex flex-row grp-2 container-line">
                 <input ref={inputRef} type="text" placeholder="username" />
-                <ButtonBox label="로그인" className="btn-secondary" onClick={login} />
+                <ButtonBox label="로그인" className="btn btn-secondary" onClick={login} />
             </div>
         </>
     )
