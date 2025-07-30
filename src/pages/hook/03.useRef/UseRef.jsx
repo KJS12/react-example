@@ -63,7 +63,7 @@ const UseRef = () => {
             <div className="container-line">
                 <p>Ref: {countRef.current}</p>
                 <p>Var: {countVar}</p>
-                <GridLayout cols={2} smCols={4} gap={2}>
+                <GridLayout>
                     <ButtonBox label="출력" onClick={printResults}/>
                     <ButtonBox label="렌더링" onClick={doRenderer}/>
                     <ButtonBox label="Ref 올려" onClick={increaseRef}/>

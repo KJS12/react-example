@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import './blog.css';
 import { ButtonBox } from "../../../shared/inputs";
+import { GridLayout } from "../../../shared/component";
 
 const initData = [
     {title: "남자코드 추천", date: "2월 17일 발행", count: 0},
@@ -81,12 +82,12 @@ const Blog = () => {
 
     return (
         <div>
-            <div className="flex flex-row gap-2 mb-2">
+            <GridLayout className="mb-3">
                 <ButtonBox label="오름차순 정렬" className="btn btn-primary" onClick={handleSortAsc} />
                 <ButtonBox label="내림차순 정렬" className="btn btn-primary" onClick={handleSortDesc} />
                 <ButtonBox label="글 수정" className="btn btn-danger" onClick={handleEdit} />
                 <ButtonBox label="글 추가" className="btn btn-secondary" onClick={handleAdd} />
-            </div>
+            </GridLayout>
             {contents && contents.map((item, index) => {
                 const {title, date, count} = item;
 
